@@ -1,0 +1,6902 @@
+/* 대장장이    200 250 0 */ 
+/* 상점주인    250 220 0 */ 5
+/* 아이템상인  250 200 0 */ 7
+/* 보석상      160 160 200 */ 11
+/* 마녀        240  20 190 */ 6
+/* 마을사람    210 210 210 */ 
+/* 주인공      250 250 0 */ 
+
+/시나리오 제 2부
+/--------------------------------------------------------
+/마을5의 대장장이
+# 1
+# 8
+# 1
+# "대장장이"
+# BASIC
+# 100
+@ IF ITEM HAVE 213 THEN GO_DOWN 개골차1
+@ IF NUM HAVE 105 THEN GO_DOWN 도둑1
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "어서오십쇼~ 무기를 팔기도 하고 수리도 해드립니다."
+@ TALK "무엇을 도와드릴깝쇼~"
+@ WAIT
+* 사주대장장이
+@ CLEAR_BUFFER
+@ COLOR 250 250 0
+@ PLAY 1.WAV
+@ SELECT 255 255 255
+CASE "장비 구입" GO_DOWN 장비고르기2
+CASE "장비 팔기" GO_DOWN 장비팔기
+CASE "장비 수리" GO_DOWN 장비수리
+CASE "주인과 이야기한다" GO_DOWN T5-1
+CASE "<나가기>" GO_DOWN 끝
+SELECT_END
+@ END
+
+* T5-1
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ SELECT 255 255 255
+CASE "<지하세계에 대해서>" GO_DOWN T5-1A
+CASE "<천귀사신에 대해서>" GO_DOWN T5-1B
+CASE "<레기오스 마족에 대해>" GO_DOWN T5-1C
+CASE ""
+CASE "<이야기를 그만둔다>" GO_UP 사주대장장이
+SELECT_END
+@ END
+
+* T5-1A
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "이 지하세계에는 어떻게 들어온 거요?"
+@ TALK "분명 이 지하세계에는 결계가 처져있어서"
+@ TALK "마족 이외에는 들어 올 수 없을 텐데?"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<당신이 여기에 있는 이유에 대해>" GO_DOWN T5-1A-1
+SELECT_END
+@ END
+
+* T5-1A-1
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "내가 여기에 있는 이유를 물어보는 건가?"
+@ TALK "이 지하세계의 마족들은 아주 오래 전부터"
+@ TALK "인간계와의 전쟁을 준비해 왔지..."
+@ TALK "그들은 첫 번째 단계로 인간계의 사람들을 납치해서"
+@ TALK "인간들의 기술을 습득하기 시작했네."
+@ TALK "우리들은 그 실험대상으로 선택된 거지..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "잡혀온 우리들은 마족들의 지배 아래.. 그들에게"
+@ TALK "모든 기술의 전수를 다짐하고서야 생명 보장을"
+@ TALK "약속 받았네.."
+@ TALK ""
+@ TALK "또.. 우리는 자체적으로 길드를 조직해서 마족들에게"
+@ TALK "장비를 제공하는 댓가로 여러 가지 편의를 제공받고"
+@ TALK "있지.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "마족들과 한 패라고 여겨도 우리는 할말이 없네."
+@ TALK "하지만.. 죽음을 앞에 둔 우리들로서는 당연한"
+@ TALK "선택이었네."
+@ WAIT
+@ GO_UP T5-1
+@ END
+
+* T5-1B
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "천귀사신이라.."
+@ TALK "아무리 높은 계급을 가지고 있는 마물이라도"
+@ TALK "여기에서는 천귀사신의 이름을 함부로 부를 수 없지."
+@ TALK "특히 이 지하세계에서는 말이야.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "천귀사신이 북괴성에서 마지막까지 통곡의 검사와"
+@ TALK "싸운 것은 알고 있나?"
+@ TALK "북괴성의 결계를 풀어 모든 마물들을 탈출시키려던"
+@ TALK "천귀사신의 계획은 무산되었고 천귀사신은 오히려"
+@ TALK "자신이 통곡의 검에 의해 봉인되는 위기에 처하게"
+@ TALK "되었지"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "결국 천귀사신은 봉인되는 마지막 순간에"
+@ TALK "자신이 가지고 있는 능력들을 자신의 심복"
+@ TALK "부하들에게 나누어 주고는 봉인되고 말았다오!"
+@ TALK "비록.. 천귀사신은 봉인 당했지만.."
+@ TALK "남은 능력을 이어받은 그의 부하들이"
+@ TALK "이 지하세계를 나누어 가지고는 세력을 키워.."
+@ TALK "인간계를 칠 준비를 한 것이지"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "지금 이 지하세계는 혼란으로 가득 차 있네."
+@ TALK "4명의 심복부하들은 각기 무슨 생각들을 가지고"
+@ TALK "있는 건지.. 서로의 지역에서 웅크리고 있고..."
+@ TALK "인간계를 공격하기 위해 모든 힘을 쏟아야 하는데"
+@ TALK "이상하게도 지상세계에는 마물들을 조금씩만 보내고는"
+@ TALK "모두 이 지하세계에 군대를 주둔시키고 있지"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "내 생각으로는 아마 서로들... 병력이 없는 틈을 타서"
+@ TALK "이 지하세계를 먹어치울 생각인 것 같은데 말야..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "그리고.. 이건 비밀인데 말이야.. 천귀사신은.."
+@ TALK "지상에서 통곡의 사검을 얻었다고 하더군..."
+@ TALK "이제.. 이 지하세계에도 피바람이 몰아칠거야.."
+@ WAIT
+@ GO_UP T5-1
+@ END
+
+* T5-1C
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "자네.. 레기오스 마족에 대해 묻는 건가?"
+@ TALK "그분들은 강한 힘을 가지고 있지만.. 주술에 걸려..."
+@ TALK "힘을 못쓰는..  아주 불쌍한 분들이지..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "마녀 레디나님과 마도사 레기오스님은 저울마왕과"
+@ TALK "이두마신에게 극대 주술에 걸려 더 이상 힘을 발휘할"
+@ TALK "수 없다네.."
+@ TALK "비참한 운명을 타고난 분들이지.."
+@ TALK "이 지하세계의 유일한 우리들의 대변인인데..."
+@ WAIT
+@ GO_UP T5-1
+@ END
+
+* 도둑1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "이봐요! 주인장!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "오.. 당신들은.. 퇴마사로군.."
+@ TALK "나에겐 무슨 일인가? 무기를 사러왔나?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "혹시 마물 묘지에 나타나는 귀신에 대해서 알고"
+@ TALK "있습니까?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "엣?! 지금 무슨 소리를 하고 있는거야?!"
+@ TALK "나...난 그... 그런건!! 전혀 모른다구!!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "호.. 그러십니까?"
+@ TALK "그럼 다행이군요...!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "뭐.. 뭐가?"
+@ TALK "다행이라는거지?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "그 마물이 복수를 위해서.."
+@ TALK "이 마을을 찾아온다고 하더군요..."
+@ TALK "그래서 전 그것을 알려주러 온 거구요."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "엣!! 그게 사실인가?!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "아저씨도 혹시 아시면 동네 사람들에게 알려주세요."
+@ TALK "사람의 목숨이 달려있는 문제니까요!"
+@ TALK "그럼.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "자! 잠깐!!!"
+@ TALK "내... 내.. 말 좀 들어보게!!"
+@ TALK "사실은.. 내가 그 귀신의 활을 가져 왔다네.."
+@ TALK "사실은.. 그게.. 이렇게까지 될 줄은 몰랐어.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "부.. 부탁하네!!"
+@ TALK "내가 활을 줄테니 그 귀신을 달래주겠나?"
+@ TALK "그리고.. 이건.. 수고비일세!!"
+@ GIVE MONEY 5000
+@ TALK "5000 동일세.."
+@ TALK "부탁하네!!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "난.. 이제 조신하게 숨어 지내야 하겠군.."
+@ TALK "그럼.. 자네만 믿겠네!"
+@ REMOVE NUM_TO_ALL 105
+@ GIVE ITEM 55 1
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "흠.. 나의 거짓말이 의외로.. 잘 통했는걸?"
+@ TALK "이제.. 다시 그 귀신에게로 가면 되겠군."
+@ WAIT
+@ END
+
+* 개골차1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "안녕하세요~ 곰바위 마을에서부터 개골차잎을"
+@ TALK "가져왔는데요."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "오.. 자네가 개골차잎을 가져왔군!"
+@ TALK "고맙네!!"
+@ TALK "내가.. 개골차잎을 꼭 쓸 곳이 있었거든.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "근데.. 돈을 얼마 주기로 했던가..?"
+@ TALK "5000 동이었던가? 6000동이었던가..?
+@ TALK "아니.... 7000 동이었나?!"
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<5000 동이었습니다.>" GO_DOWN 개골차1-1
+CASE "<6000 동이었습니다.>" GO_DOWN 개골차1-2
+CASE "<7000 동이었습니다.>" GO_DOWN 개골차1-3
+SELECT_END
+
+* 개골차1-1
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "그랬나?"
+@ TALK "자네는 상당히 정직한 사람이로군..."
+@ TALK "내가 잘 모르면.. 속일 수도 있었을 텐데.."
+@ TALK "좋네! 내 수고비를 포함해서...7000 동 내지!"
+@ GIVE MONEY 7000
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "앞으로도.. 정직한 마음~ 잃지 말라구!"
+@ TALK "그리고.. 개골차잎은 잘 쓰겠네!"
+@ REMOVE ITEM 213
+@ REMOVE NUM_TO_ALL 108
+@ REMOVE_ORDER 54
+@ WAIT
+@ END
+
+* 개골차1-2
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "그랬었나..?"
+@ TALK "흠.. 5000 동이었던 것도 같구.."
+@ TALK "어쨌든... 6000동 주겠네!"
+@ GIVE MONEY 6000
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "그리고.. 개골차잎은 잘 쓰겠네!"
+@ REMOVE ITEM 213
+@ REMOVE NUM_TO_ALL 108
+@ REMOVE_ORDER 54
+@ WAIT
+@ END
+
+* 개골차1-3
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 200 0
+@ TALK "뭐!! 7000 동이었다구?!!!"
+@ TALK "무슨 소리를 하는 건가? 자네!"
+@ TALK "이거... 아무리.. 내가 기억력이 나쁘다고 해서.."
+@ TALK "흠.. 기분이 나쁘구먼.."
+@ TALK "어쨌든.. 약속한 돈이니.. 5000 동 주겠지만.."
+@ WAIT
+@ TALK "세상을 그렇게 살아가면 안되네..."
+@ TALK "정직하게 살아야지 말이야..."
+@ GIVE MONEY 5000
+@ REMOVE ITEM 213
+@ REMOVE NUM_TO_ALL 108
+@ REMOVE_ORDER 54
+@ WAIT
+@ END
+
+/--------------------------------------------------------
+/마을5의 상점주인
+# 2
+# 8
+# 2
+# "상점 주인"
+# BASIC
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ TALK "안녕하세요. 필요한 아이템을 골라보세요."
+@ TALK "뭐~ 필요한 게 있습니까?"
+@ WAIT
+@ IF NUM HAVE 151 THEN GO_DOWN 산삼1
+* 사주상점주인
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ COLOR 250 250 0
+@ PLAY 3.WAV
+@ SELECT 250 250 255
+CASE "장비 구입" GO_DOWN 장비고르기1
+CASE "장비 팔기" GO_DOWN 장비팔기
+CASE "아이템 구입" GO_DOWN 아이템사기3
+CASE "아이템 팔기" GO_DOWN 아이템팔기
+CASE "주인과 이야기한다" GO_DOWN T5-2
+CASE "<나가기>" GO_DOWN 끝
+SELECT_END
+@ END
+
+* T5-2
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ SELECT 255 255 255
+CASE "<주변의 마물에 대해서>" GO_DOWN T5-A
+CASE "<천귀사신에 대해서>" GO_DOWN T5-B
+CASE "<레기오스 마족에 대해서> " GO_DOWN T5-C
+CASE "<이야기를 그만둔다>" GO_UP 사주상점주인
+SELECT_END
+@ END
+
+* T5-A
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ TALK "주변의 마물이라고요? 당신 지금.. 지하세계에"
+@ TALK "와 있다는 것을 알고 계신 겁니까?"
+@ TALK "어쨌든 지하세계에 외부 사람이 온 것을 보니"
+@ TALK "인간족과 마족간의 전투가 막바지에 온 것을"
+@ TALK "알 수 있겠군요."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "지금 모든 마족들은 자신의 지역에서 전쟁을"
+@ TALK "준비하고 있소. 그 전쟁은 인간계를 공격하는 것보다"
+@ TALK "훨씬 더 중요한 이 지하세계의 패권을 말하죠."
+@ TALK "아마 마족들이 힘을 합쳤다면 인간계는 벌써"
+@ TALK "마족들의 손에 떨어졌는지도 모릅니다."
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<천귀사신의 부하 마족들에 대해>" GO_DOWN T5-A-1
+SELECT_END
+@ END
+
+* T5-A-1
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ TALK "천귀사신의 부하 마족들이라면..."
+@ TALK "서쪽 성의 이두마신. 과거 천귀사신이 마계 대전에서"
+@ TALK "싸울 때 혁혁한 공을 세운 마족으로 이번에"
+@ TALK "천귀사신이 봉인될 때 그의 눈을 받았다고 하더군요."
+@ TALK "동쪽 성의 저울마왕. 그는 무서운 괴력으로"
+@ TALK "마물들을 공포에 떨게 하죠. 그는 천귀사신의 눈을"
+@ TALK "받았다고 하더군요."
+@ TALK "이 둘이 이 마계를 대표하는 마족이죠."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "이들은 원래 천귀사신의 부하였지만..."
+@ TALK "천귀사신이 봉인을 당하고 나서 천귀사신의 능력을 받고"
+@ TALK "이 지하세계를 양분해 나누어 가졌죠.."
+@ WAIT
+@ GO_UP T5-2
+@ END
+
+* T5-B
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ TALK "천귀사신이라..?"
+@ TALK "물론 천귀사신은 마계 역사상 가장 위대한 마족으로"
+@ TALK "평가되고 있긴 하지만 현재는 그렇지 못하죠."
+@ TALK "자신의 모든 힘을 부하들에게 나누어주고 나서"
+@ TALK "그 부하들이 이 지하세계를 나누어 가져 버렸기"
+@ TALK "때문에 이제 그는 별다른 힘을 못쓰고 어딘가에"
+@ TALK "은거중이라는 이야기가 들리던데..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "한편으로는 지상세계에서 통곡의 사검을 얻었다는"
+@ TALK "이야기도 들리더군요..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "하지만.."
+@ TALK "아마 마족간의 싸움을 가장 바라고 있는 것이"
+@ TALK "천귀사신일지도 모르죠. 이두마신과 저울마왕이 다 죽어야"
+@ TALK "자기가 주었던 능력을 되찾을 수 있으니까.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "천귀사신이 이두마신과 저울마왕에게 능력을 나누어주고는"
+@ TALK "배신을 당한 건 알고 있겠죠?"
+@ WAIT
+@ GO_UP T5-2 
+
+* T5-C
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ TALK "레기오스 마족이라면..."
+@ TALK "마녀 레디나님과.. 마도사 레기오스님을 말하는 거죠?"
+@ TALK "그분들은.. 이 마계의 위대한.. 분들이죠.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "하지만.. 저울마왕과 이두마신으로부터 각각..."
+@ TALK "극대의 주문에 걸려.. 더 이상.. 힘을 쓸 수 없게 되었죠."
+@ TALK "마물들은.. 그 분들의 힘을 두려워하거든요.."
+@ TALK "아마도.. 인간계 정복을 지금에서야 시행하는 것도"
+@ TALK "모두 이 분들이.. 막아온 덕분이죠.."
+@ CLEAR_BUFFER
+@ TALK "하지만.. 이제.. 이분들은.. 모든 힘을 잃었죠.."
+@ TALK "세상이 어떻게 될지.. 이제 아무도 모른답니다.."
+@ WAIT
+@ GO_UP T5-2 
+
+
+* 산삼1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ SELECT 255 255 255
+CASE "<산삼에 대해 이야기 한다.>" GO_DOWN 산삼2
+CASE "<물건에 대해 이야기 한다.>" GO_UP 사주상점주인
+CASE "<나가기>" GO_DOWN 중계끝
+SELECT_END
+
+* 산삼2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "혹시 이곳에서 산삼을 파나요?!"
+@ TALK "급한 일이라서..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ TALK "산삼이라고요?"
+@ TALK "산삼이라면... 내 한 뿌리 있기는 하지만..."
+@ TALK "하지만... 산삼은 구하기가 어려워서.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "제발 부탁드립니다!"
+@ TALK "도와주십시오!!"
+@ TALK "한 소녀의 생명이 달려 있습니다."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ TALK "나.. 참.. 자네의 사정은 아네만..."
+@ TALK "산삼이 워낙 구하기가 어려워서.."
+@ TALK "돈을 한.. 10000동 정도 주면 모를까..?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ SELECT 255 255 255
+CASE "<돈을 지불한다.>" GO_DOWN 산삼1-1
+CASE "<돈을 지불하지 않는다.>" GO_DOWN 산삼1-2
+SELECT_END
+
+* 산삼1-1
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ IF MONEY GE 10000 THEN GO_DOWN 산삼OK
+@ TALK "뭐야.. 자네..! 돈도 없으면서.. 물건을 사겠다고 하나?"
+@ TALK "장난을 치는 것도 아니고 말이야.."
+@ TALK "썩.. 꺼져버려...!"
+@ WAIT
+@ END
+
+* 산삼1-2
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ TALK "그런가?.. 자네가 싫다면 어쩔 수 없지..."
+@ TALK "날 너무 야속하게 생각하지 말게!"
+@ TALK "나도.. 상인인데.. 이익을 찾는 것은 당연하지 않나?"
+@ TALK "그럼.. 다음에 또 보세!"
+@ WAIT
+@ END
+
+* 산삼OK
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ REMOVE MONEY 10000
+@ GIVE ITEM 168 1
+@ TALK "자! 여기 산삼이 있네!"
+@ TALK "나도.. 산삼을 싸게 파는 거라.. 조금 아깝구만.."
+@ TALK "정말로 구하기 힘든 물건인데..."
+@ TALK "어쨌든.. 유용하게 쓰기 바라네.."
+@ TALK "비싼 물건이니까 말이야."
+@ REMOVE NUM_TO_ALL 151
+@ WAIT
+@ END
+
+/--------------------------------------------------------
+* 마을5의 마녀
+# 3
+# 8
+# 3
+# "마녀"
+# BASIC
+# 100
+* 사주마녀
+@ CLEAR_BUFFER
+@ COLOR 240 20 190
+@ IF LEARN_MAGIC THEN GO_DOWN MAGIC_STOP
+@ BOX BLUE 5
+@ FACE 6 "마법소 마녀" 240 20 190
+@ TALK "그래, 나한테 무슨 볼일이 있지요?"
+@ WAIT
+@ CLEAR_BUFFER
+@ COLOR 250 250 0
+@ PLAY 7.WAV
+@ SELECT 250 250 250
+CASE "주인과 이야기한다" GO_DOWN T5-3
+CASE "마법 훈련" GO_DOWN 마법훈련1
+CASE "<나가기>" GO_DOWN 끝
+SELECT_END
+
+* T5-3
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마법소 마녀" 240 20 190
+@ COLOR 240 20 190
+@ TALK "물건은 사지도 않고 질문부터 하는군.."
+@ TALK "뭐.. 어쨌든 좋아. 오랜만에 보는 지상인이니까"
+@ TALK "봐주기로 하지."
+@ WAIT
+
+* T5-3A
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마법소 마녀" 240 20 190
+@ COLOR 240 20 190
+@ SELECT 255 255 255
+CASE "<이두 마신에 대해>" GO_DOWN T5-3-1
+CASE "<저울 마왕에 대해>" GO_DOWN T5-3-2
+CASE "<레기오스 마족에 대해>" GO_DOWN T5-3-3
+CASE "<이야기를 그만둔다>" GO_UP 사주마녀
+SELECT_END
+@END
+
+* T5-3-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마법소 마녀" 240 20 190
+@ COLOR 240 20 190
+@ TALK "이두마신이라면 서쪽 성에 세력을 가지고 있는"
+@ TALK "마족이지. 서쪽 성으로 가려면 마성 봉우리에서"
+@ TALK "주역 마왕굴을 통해서 가야해. 하지만 이미"
+@ TALK "동굴의 입구를 마물들이 가득 채우고 있어서"
+@ TALK "들어가지 힘들 거야."
+@ WAIT
+@ GO_UP T5-3A 
+
+* T5-3-2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마법소 마녀" 240 20 190
+@ COLOR 240 20 190
+@ TALK "도대체 내가 왜 자네에게 이런 답을 해야 하는지"
+@ TALK "모르겠군.."
+@ TALK "어쨌든 저울 마왕은 동쪽 성에 세력을 가지고 있지"
+@ TALK "동쪽 성으로 가려면 우리 마을 북동쪽으로 가봐"
+@ TALK "천사왕굴로 가면 될 거야."
+@ TALK "하지만.. 그 곳 역시 마물들로 가득 차 있네."
+@ WAIT
+@ GO_UP T5-3A
+
+* T5-3-3
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마법소 마녀" 240 20 190
+@ COLOR 240 20 190
+@ TALK "지금.. 레기오스 가문에 대해서 물어봤나?!"
+@ TALK "레기오스 가문이라면.. 위대한 마녀 레디나님을"
+@ TALK "빼놓을 수 없지!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "그분의 자상한 성품과 마력은.. 정말로.. 마족들은"
+@ TALK "쳐다볼 수 없을 정도였다네.."
+@ WAIT
+@ TALK "하지만.. 그 놈의 마물들이..."
+@ TALK "주술을 거는 바람에..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "그 이야기는 하면 할수록 화가 나니.. 그만두세!"
+@ WAIT
+@ GO_UP T5-3A
+
+/----------------------------------------------------
+# 15
+# 8
+# 4
+# "아이템 상인"
+# BASIC
+# 100
+* 아이템상인명령1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 5 "아이템 상인" 250 200 0
+@ COLOR 250 200 0
+@ TALK "어서 오세요~ 손님. 무엇이 필요합니까?"
+@ TALK "성의껏 도와드리죠~"
+@ WAIT
+* 사주아이템
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ COLOR 250 250 0
+@ PLAY 5.WAV
+@ SELECT 255 255 255
+CASE "아이템 구입" GO_DOWN 아이템사기2
+CASE "아이템 팔기" GO_DOWN 아이템팔기
+CASE "주인과 이야기 한다." GO_DOWN 사주아이템T-1
+CASE "나가기" GO_DOWN 끝
+SELECT_END
+
+* 사주아이템T-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 5 "아이템 상인" 250 200 0
+@ COLOR 250 200 0
+@ TALK "자네는 외부인이군? 그런 건 우리 모두들 한번에 "
+@ TALK "알 수 있지. 자네 하지만.. 조심하는 게 좋을 거야."
+@ TALK "어떤 마음으로 이 세계에 발을 들여놓은 건지"
+@ TALK "잘 모르겠지만.. 말이야... 자넨 이 세계에서.. "
+@ TALK "목숨을 건지기 어려울 걸세.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "이곳의 마물들은 모두.. 강한 힘들을 가지고 있지."
+@ TALK "지상계는 힘없는 하급 마물들이 가는 곳이라네.."
+@ TALK "게다가 요즘은 마계전쟁으로 세력간에.. 신경이 "
+@ TALK "날카로워졌거든.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "웬만하면 이 지하세계에서 죽을 생각을 하지 말고"
+@ TALK "자네 인간계로 돌아가도록 해.."
+@ TALK "돌아갈 수 있다면 말이지..."
+@ WAIT
+@ GO_UP 사주아이템
+/----------------------------------------------------
+# 16
+# 8
+# 5
+# "보석상"
+# BASIC
+# 100
+* 사주보석상
+/싼것과 비싼 장신구 취급하는 상점
+@ IF NUM HAVE 32 THEN GO_DOWN STEP1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "보석상" 160 160 200
+@ COLOR 160 160 200
+@ TALK "안녕하세요. 좋은 보석들이 있습니다."
+@ TALK "맘껏 골라보시오... 돈만 많다면 말이오."
+@ WAIT
+@ COLOR 250 250 0
+@ PLAY 9.WAV
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "저렴한 장신구 구입" GO_DOWN 장신구사기1
+CASE "비싼 장신구 구입" GO_DOWN 장신구사기3
+CASE "주인과 이야기한다." GO_DOWN T3-2
+CASE "<나가기>" GO_DOWN 끝
+SELECT_END
+
+* STEP1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "보석상" 160 160 200
+@ COLOR 160 160 200
+@ TALK "안녕하세요. 보석을 보여드릴까요?"
+@ TALK "좋은 보석들이 아주 많습니다. "
+@ WAIT
+* 보석상명령1
+@ CLEAR_BUFFER
+@ COLOR 250 250 0
+@ PLAY 9.WAV
+@ SELECT 255 255 255
+CASE "저렴한 장신구 구입" GO_DOWN 장신구사기1
+CASE "비싼 장신구 구입" GO_DOWN 장신구사기3
+CASE "나가기" GO_DOWN 끝
+SELECT_END
+@ END
+
+* T3-2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "보석상" 160 160 200
+@ COLOR 160 160 200
+@ SELECT 255 255 255
+CASE "<이 지하세계의 상황에 대해>" GO_DOWN T3-2-1
+CASE "<주변의 상황에 대해>" GO_DOWN T3-2-2
+CASE "<이야기를 그만둔다.>" GO_UP 사주보석상
+SELECT_END
+@ END
+
+* T3-2-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "보석상" 160 160 200
+@ COLOR 160 160 200
+@ TALK "당신! 생김새를 보아하니 이 지하세계의 사람이 아니군요."
+@ TALK "어떻게 이 세계로 올 수 있었지?"
+@ TALK "설마 지하세계와 인간계를 여는 통로라도 발견한 건가?"
+@ TALK "물론 마물들이야 통해 다닐 수 있는 통로가 예전부터"
+@ TALK "있어 왔지만.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "혹시 자네들 새로 끌려온 사람들은 아니겠지?"
+@ TALK "차림새를 보아하니.. 끌려온 사람들 같지는 않구만.."
+@ TALK "어쨌든 조심하게.. 지금 이 지하 세계는 초긴장 상태야."
+@ TALK "까딱.. 잘못 하다가는 목숨을 잃기 쉽지.."
+@ TALK "세력이 나뉜 마물들은.. 서로를 잡아먹으려고 으르렁대고"
+@ TALK "있지."
+@ TALK "이런 세계에서 살아간다는 것은 정말로 힘든 일이야.."
+@ WAIT
+@ GO_UP T3-2
+
+* T3-2-2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "보석상" 160 160 200
+@ COLOR 160 160 200
+@ TALK "요즘 주변 상황이 정말 말이 아니지.."
+@ TALK "점차 이 세계가 혼란에 빠져가고 있거든. 원래도"
+@ TALK "혼란스러운 곳이었지만 지금은 저울마왕과 이두마신의"
+@ TALK "전쟁으로 온 세상이 죽음의 땅으로 변하는 느낌일세."
+@ TALK "이런 때에는 정의라는 것은 무시당하는 게 일반이지..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "우리 옆집에 사는 아가씨도 피해자의 한 사람이지"
+@ TALK "자네 혹시 이곳에 온 김에 좋은 일 한번 안 할 텐가?"
+@ TALK "아주 착한 아가씨인데...말야.."
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<이야기를 들어본다>" GO_DOWN T3-2-3
+CASE "<시간이 없다고 말한다>" GO_DOWN T3-2-4
+SELECT_END
+
+* T3-2-3
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "보석상" 160 160 200
+@ COLOR 160 160 200
+@ TALK "원래는 자기의 집에 있어야 하지만... 마물의 요구를"
+@ TALK "피해서 지금 내 집에 숨어 있다네."
+@ TALK "이봐요~ 청아 아가씨! 잠깐 나와봐요~"
+@ NEW_OBJECT 8 54 30 6 59 17
+@ WAIT
+@ TALK "아가씨와 이야기를 해보게."
+@ WAIT
+@ END
+
+* T3-2-4
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "보석상" 160 160 200
+@ COLOR 160 160 200
+@ TALK "흠.. 자네가 싫다면.. 굳이 강요는 하지 않겠네.."
+@ TALK "쯧쯧.. 불쌍한 청아 아가씨만.. 고생을 하겠군.."
+@ TALK "하여간.. 여자는 이쁘면 고생이지.."
+@ TALK "특히 이런 난세에는 말이야.."
+@ WAIT
+@ END
+
+
+/----------------------------------------------------
+# 17
+# 8
+# 6
+# "청아 아가씨"
+# FLOW
+# 100
+@ IF ITEM HAVE 204 THEN GO_DOWN 청하4 
+@ IF ORDER HAVE 17 THEN GO_DOWN 청하3
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 12 "청아 아가씨" 210 210 210
+@ COLOR 210 210 210
+@ TALK "아... 당신이 인간계에서 오신 퇴마사군요...?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "곤경에 처한 일이 있으시다면서요?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 12 "청아 아가씨" 210 210 210
+@ COLOR 210 210 210
+@ TALK "네... 하지만.. 당신께 별로 피해를 끼치고 싶지는 않은데.."
+@ TALK "....."
+@ TALK "하지만.. 이야기는 해드릴 수 있어요.."
+@ TALK "사실.. 저는 이 지하 세계에서 태어난 제 2세대죠.."
+@ TALK "저희 이 지하 인간들은 마물들을 위한 잡일을 하면서"
+@ TALK "근근히 살아가고 있는데..."
+@ WAIT
+@ TALK "저는 잔심부름을 해주는 일을 하고 있었답니다."
+@ TALK "근데 어느날.. 한 마물의 심부름으로 중요한 물건을"
+@ TALK "가지고 가다가... 그만 마물들의 습격으로 빼앗기고"
+@ TALK "말았답니다.. "
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "그 마물은.. 대신 저에게 평생을 노예로 살아야 한다고"
+@ TALK "하는데.. 너무 막막해서.. 일단 지금은 이렇게 숨어 지내고"
+@ TALK "있답니다..."
+@ TALK "제가.. 너무 쓸데없는 이야기를 많이 했군요.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ SELECT 255 255 255
+CASE "<제가 그 일을 도와드리겠습니다.>" GO_DOWN 청아1
+CASE "<도와드리고 싶지만.. 바빠서>" GO_DOWN 청아2
+SELECT_END
+>>>>>>>>>
+* 청아1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 12 "청아 아가씨" 210 210 210
+@ COLOR 210 210 210
+@ TALK "아.. 저를 도와주실 수 있나요..?"
+@ TALK "하지만... 그게 당신에게 폐가 될까봐.. 걱정이..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "어려움을 돕는 것이 진정한 무사의 길이죠.."
+@ TALK "근데... 제가 어떻게 도와 드리면 되죠?"
+@ IF ORDER_SPACE NOTHAVE THEN GO_DOWN NO_SPACE
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 12 "청아 아가씨" 210 210 210
+@ COLOR 210 210 210
+@ TALK "제가 그 물건을 잃어버린 곳이 통곡의 계곡이거든요."
+@ TALK "그곳에 사는 우두머리 마물인데....."
+@ TALK "솟은 머리에 날렵한 움직임을 가진.. 마치 사람처럼 생긴"
+@ TALK "마물이었어요..."
+@ ORDER 17 "청아 아가씨의 물건을 찾아준다."
+MENT "통곡의 계곡으로 가서 솟은 머리에 날렵한 움직임을"
+MENT "가진 마물을 찾아 없앤 후 청아 아가씨의 수정 조약돌을"
+MENT "되찾아 온다."
+ORDER_END
+@ UNSEAL 5
+@ LOCATE_ENEMY 5 80 4 39 70 204
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "그럼.. 나중에 뵙도록 하죠."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 12 "청아 아가씨" 210 210 210
+@ COLOR 210 210 210
+@ TALK "무사님... 저 때문에 괜한 고생을 하시는군요."
+@ TALK "그리고.. 제 물건은 수정 조약돌이랍니다.."
+@ TALK "부디 몸조심하세요.."
+@ GIVE NUM_TO_ALL 51
+@ WAIT
+@ END
+>>>>>>>>
+* 청하 2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 12 "청아 아가씨" 210 210 210
+@ COLOR 210 210 210
+@ TALK "휴... 무사님의 사정이 그러하다면 어쩔 수 없죠.."
+@ TALK "내심 무사님이 도와주시길 바랬는데..."
+@ TALK "그럼 바쁜 무사님은.. 어서 갈 길을 가시지요.."
+@ WAIT
+@ END
+>>>>>>>>
+* 청하3
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 12 "청아 아가씨" 210 210 210
+@ COLOR 210 210 210
+@ TALK "괜히 무사님께 어려운 부탁을 드린 것 같네요..."
+@ TALK "저 때문에.. 고생을 하시구.."
+@ TALK "정말 죄송합니다."
+@ WAIT
+@ END
+>>>>>>>
+* 청하4
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 12 "청아 아가씨" 210 210 210
+@ COLOR 210 210 210
+@ TALK "아니! 무사님!!! 돌아오셨군요!!!"
+@ TALK "무사님이 오시기만을 손꼽아 기다리고 있었답니다."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "자! 여기 수정의 조약돌입니다."
+@ REMOVE ITEM 204
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 12 "청아 아가씨" 210 210 210
+@ COLOR 210 210 210
+@ TALK "아.. 무사님 정말 감사합니다.."
+@ TALK "무사님 덕분에.. 전 이제.. 그 마물에게로 가지 않아도"
+@ TALK "되는군요... 이 은혜를 어떻게 갚아야 할지...?"
+@ TALK "제가.. 드릴 것은 없구.. 저희 집에서 내려오는 몇 가지"
+@ TALK "물건으로 미약하나마 은혜를 대신하겠습니다."
+@ TALK "이건 저희 아버지께서 만드신 부적과 환약입니다."
+@ TALK "마물들과 싸우실 때 사용해 주신다면 큰 영광이겠습니다."
+@ GIVE ITEM 177 1 
+@ GIVE ITEM 178 1 
+@ GIVE ITEM 179 1 
+@ GIVE ITEM 181 1 
+@ GIVE ITEM 173 1 
+@ GIVE ITEM 174 1 
+@ TALK "그리고, 무사님... 무사님을 절대 잊지 않겠습니다."
+@ REMOVE_ORDER 17
+@ REMOVE NUM_TO_ALL 51
+@ GIVE NUM_TO_ALL 32
+@ CHANGE 46
+@ WAIT
+@ END
+
+# 46
+# 8
+# 6
+# "청아 아가씨"
+# FLOW
+# 100
+@ IF NUM HAVE 32 THEN GO_DOWN 청하2-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 12 "청아 아가씨" 210 210 210
+@ COLOR 210 210 210
+@ TALK "요즘 이곳 마계가 당신들 때문에 상당히"
+@ TALK "혼란스러워 졌어요.."
+@ TALK "어쨌든.. 당신들이 무사히 인간계로"
+@ TALK "돌아갈 수 있다며 좋겠군요."
+@ WAIT
+@ END
+
+
+* 청하2-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 12 "청아 아가씨" 210 210 210
+@ COLOR 210 210 210
+@ TALK "아.. 용사님! 웬일로 저를 다시 찾아주셨나요?"
+@ TALK "용사님 덕분에.. 요즘엔 아주 맘 편하게 잘 지내고"
+@ TALK "있답니다."
+@ TALK "모두가 용사님 덕분이죠.."
+@ TALK "다시 한번 감사드립니다."
+@ WAIT
+@ END
+
+/----------------------------------------------------
+/사냥꾼의 부탁 이벤트
+# 19
+# 8
+# 9
+# "사냥꾼"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 4 "사냥꾼" 113 165 242 
+@ COLOR 113 165 242
+@ IF ITEM HAVE 232 THEN GO_DOWN 중계2-1B
+@ IF NUM HAVE 102 THEN GO_DOWN 중계2-1C
+@ TALK "오.. 당신은 퇴마사인가요?"
+@ TALK "당신을 기다리고 있었습니다!~"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<사냥꾼의 이야기를 들어본다>" GO_DOWN 중계2-1
+CASE "<이야기를 그만둔다>" GO_DOWN 끝
+SELECT_END
+@ END
+
+* 중계2-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 4 "사냥꾼" 113 165 242 
+@ COLOR 113 165 242
+@ TALK "무사님. 혹시 '비사의 약물'을 알고 계십니까?"
+@ TALK "비사의 약물은 죽은 자도 살려낸다는 기적의 약물이죠."
+@ TALK ""
+@ TALK "지금 제게는 어여쁜 여식이 하나 있는데 글쎄... 그만..."
+@ TALK "몹쓸 병에 걸리고 말았습니다..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "제 딸은 제 어미도 일찍 잃어버리고.. 저와 단 둘이"
+@ TALK "살아온 불쌍한 녀석입니다... 지금도 어미 없이 키우는 것이"
+@ TALK "너무도.. 가슴이 아픈데.."
+@ TALK "제가.. 저번에 몸이 아프자, 산 속으로 약초를 캐러 갔다가.."
+@ TALK "중독이 되어 돌아왔지요...."
+@ TALK "휴...."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "제 딸을 고치려면 비사의 약물이 필요한데..."
+@ TALK "우마왕골에 있는 사는 한 떠돌이 노인만이 그 약물을"
+@ TALK "만들 수 있다고 하는군요..."
+@ TALK ""
+@ TALK "그곳까지 너무 길이 험해서 제가 가지 못하고"
+@ TALK "이렇게 애만 태우고 있습니다.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "용사님... 제발 부탁드립니다... 제 딸을.. 제 딸을.."
+@ TALK "도와주십시오. "
+@ TALK "용사님이 아니면.. 제 딸은 죽고 말 겁니다."
+@ TALK "어떻게... 이일을 맡아주시겠습니까?"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<좋습니다! 제가 이 일을 하죠!>" GO_DOWN 중계2-1A
+CASE "<사정은 어렵지만.. 죄송합니다.>" GO_DOWN 사냥끝
+SELECT_END
+
+* 중계2-1A
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 4 "사냥꾼" 113 165 242 
+@ COLOR 113 165 242
+@ IF ORDER_SPACE NOTHAVE THEN GO_DOWN NO_SPACE
+@ TALK "고맙습니다!!!!!"
+@ TALK "아... 어려운 일인데도.. 선뜻 맡아주시다니...!"
+@ TALK "사실 이일은 제 목숨보다도 더 중요한 문제라.."
+@ TALK ""
+@ TALK "용사님 어려운 부탁을 드려 정말 죄송합니다..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "비사의 약물은 우마왕골의 노인만이 만들 수 있다고"
+@ TALK "하더군요... 용사님.."
+@ TALK "제발... 잘... 잘... 부탁드립니다...!"
+@ ORDER 18 "비사의 약물 구하기"
+MENT "우마왕골에 있는 노인으로부터 비사의 약물을 구해서"
+MENT "사주마을의 사냥꾼에게 가져다준다."
+ORDER_END
+@ GIVE NUM_TO_ALL 102
+@ UNSEAL 3
+@ NEW_OBJECT 3 107 32 1 18 20  
+/우마왕 골에 있는 노인 이벤트(20)을 불러온다. 
+@ WAIT
+@ END
+
+* 중계2-1B
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 4 "사냥꾼" 113 165 242 
+@ COLOR 113 165 242
+@ TALK "아.. 용사님 돌아오셨군요!!"
+@ TALK "다행입니다.. 아직 늦지 않았습니다."
+@ TALK "어디 비사의 약물은 가져오셨나요?"
+@ REMOVE ITEM 232
+@ WAIT
+@ TALK "아...맞군요! 정말 수고하셨습니다!!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "도대체 이 사례를 어떻게 해야 할지...!"
+@ TALK "저희 두 부녀의 생명의 은인이십니다!"
+@ TALK "정말... 정말.. 감사합니다."
+@ GIVE MONEY 5000
+@ TALK "이건 제가 가진 돈의 전부인 5000 동입니다.!"
+@ TALK "부족하지만 받아 주십시오."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "그리고 이건 제가 아끼는 활입니다."
+@ TALK "제가 예전에 모시던 스승님께 받았던 활인데.."
+@ TALK "아끼던 것이지만.. 용사님께 드리겠습니다."
+@ GIVE ITEM 53 1
+@ TALK "정말로 감사합니다!"
+@ TALK "용사님의 이름은 저희 마을에 영원히 남을 겁니다!"
+@ REMOVE_ORDER 18 
+@ REMOVE NUM_TO_ALL 102
+@ CHANGE 39
+@ WAIT
+@ END
+
+* 중계2-1C
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 4 "사냥꾼" 113 165 242 
+@ COLOR 113 165 242
+@ TALK "용사님.. 아직 떠나지 않으셨나요?"
+@ TALK "제 여식의 병세가 날이 갈수록 깊어지고 있습니다.."
+@ TALK "어서.. 비사의 약물을 구해 다 주십시오."
+@ TALK "그 약물은 우마왕골의 노인에게 얻을 수 있습니다."
+@ TALK "어서 도와주십시오 !"
+@ WAIT
+@ END
+
+* 사냥끝
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 4 "사냥꾼" 113 165 242 
+@ COLOR 113 165 242
+@ TALK "아... 저의 마지막 희망이 사라졌군요..."
+@ TALK "용사님이라면.. 들어주실 줄 알았는데.."
+@ TALK "정말로... 정말로... 내가 힘이 없는 것이 억울하군요.."
+@ TALK "적어도 당신의 힘만큼만 있었어도..."
+@ TALK "어차피 당신과는 무관한 일이니.."
+@ TALK "더 이상 날 방해하지 말고 돌아가 주세요."
+@ WAIT
+@ END
+/------------------
+# 39
+# 8
+# 9
+# "사냥꾼"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 4 "사냥꾼" 113 165 242 
+@ COLOR 113 165 242
+@ TALK "요즘 마물계가 혼란스러워 지고 있습니다.."
+@ TALK "정말로... 걱정이 앞서는군요..."
+@ TALK "이러다가 무사히 고향으로 돌아갈 수 있을지..."
+@ WAIT
+@ END
+
+/-------------------------------------------------
+/이벤트 비사1
+# 20
+# 3
+# 1
+# "괴노인"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "괴노인" 160 160 200
+@ COLOR 160 160 200
+@ IF NUM HAVE 151 && ITEM HAVE 168 THEN GO_DOWN 비사1-A
+@ IF NUM HAVE 151 THEN GO_DOWN 비사NO
+@ TALK "케헤헬..."
+@ TALK "네 녀석은 뭔데 이 우마왕 골을 얼씬거리는 거냐?!"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<노인에 대해 물어본다>" GO_DOWN 비사1
+SELECT_END
+
+* 비사1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "괴노인" 160 160 200
+@ COLOR 160 160 200
+@ TALK "내가 누구냐구?!"
+@ TALK "이런 버릇없는 녀석!!"
+@ TALK "어찌 어른에게 먼저 이름을 물어보는 거냐?!"
+@ TALK "네 녀석은 누구냐?!"
+@ TALK "이 우마왕 골에는 무슨 일로 온 거냐?!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "전.. 마물 사냥꾼입니다."
+@ TALK "그리고 이곳에는 비사의 약물을 찾기 위해 왔습니다."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "괴노인" 160 160 200
+@ COLOR 160 160 200
+@ TALK "비사의 약물이라구?!"
+@ TALK "네놈이 그걸 어디에 쓰려구?!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "한 소녀의 생명을 구하기 위해서 입니다!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "괴노인" 160 160 200
+@ COLOR 160 160 200
+@ TALK "제법 착한 척을 하는군..?"
+@ WAIT
+@ TALK "좋아.. 어쨌든...."
+@ TALK "비사의 약물을 만들 수 있는 건 나 뿐이야!"
+@ TALK "먼저! 산삼을 내놔!"
+@ WAIT
+@ GIVE NUM_TO_ALL 151
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "산삼을 어디서 구해오란 말인가요?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "괴노인" 160 160 200
+@ COLOR 160 160 200
+@ TALK "내가 그것까지 가르쳐주랴?!!!"
+@ TALK "상점 주인에게 가봐!!"
+@ WAIT
+@ END
+
+* 비사1-A
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "괴노인" 160 160 200
+@ COLOR 160 160 200
+@ TALK "자네 산삼을 가져왔군!!"
+@ TALK "좋아.. 자네에게.. 비사의 약물을 주도록 하지!"
+@ TALK "약물의 가격은 2000 이야!"
+@ IF MONEY GE 2000 THEN GO_DOWN 비사1-C
+@ TALK "도대체 돈도 없이 무슨 약을 사겠다는 거야?!"
+@ TALK "돈을 가져와 돈을!!"
+@ WAIT
+@ END
+
+* 비사1-C
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "괴노인" 160 160 200
+@ COLOR 160 160 200
+@ REMOVE ITEM 168
+@ TALK "이 정도면 약물을 싸게 파는 거라구!"
+@ REMOVE MONEY 2000
+@ WAIT
+@ TALK "자! 자네가 원하던 비사의 약물일세!!"
+@ GIVE ITEM 232 1
+@ REMOVE NUM_TO_ALL 151
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "뭘 보고 있어?!"
+@ TALK "볼일 끝났으면.. 썩 꺼지지 않구?"
+@ TALK "난 이만 내일을 봐야겠군."
+@ CHANGE_GOS 19
+@ WAIT
+@ REMOVE_OBJECT THIS
+@ END
+
+* 비사NO
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "괴노인" 160 160 200
+@ COLOR 160 160 200
+@ TALK "이녀석아! 산삼을 가지고 오라고 했잖아!"
+@ TALK "어서 산삼을 가지고 오란 말이다!!"
+@ WAIT
+@ END
+
+/========================================================
+/ 기사의 활을 구해다 주기
+# 18
+# 8
+# 7
+# "기사"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 9 "기사" 86 171 171
+@ COLOR 86 171 171
+@ IF ITEM HAVE 54 && ORDER HAVE 3 THEN GO_DOWN 기사활1
+@ IF NUM HAVE 24 THEN GO_DOWN T1
+@ TALK "오.. 자네는 마물 사냥꾼이로군!"
+@ TALK "혹시 자네 좋은 무기를 가지고 있나?"
+@ TALK "난 마물을 퇴치하려구 하는데.. 무기가 없군!"
+@ TALK "혹시 나에게 천상의 활을 구해 주지 않겠나?"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "사실은 내가 직접 구해야 하지만..."
+@ TALK "그 활은 구하기가 힘이 들어서... 사정상.."
+@ TALK "그럼 같은 마물 사냥꾼끼리 좀 부탁하네!"
+@ TALK "사다만 준다면.. 내가 더 비싼 가격으로 구입을 하겠네!"
+@ WAIT
+@ TALK "어떤가? 나를 도와주겠나?"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<좋습니다! 도와 드리죠.>" GO_DOWN 기사활1-1
+CASE "<죄송합니다만.. 지금은 어렵겠는데요.>" GO_DOWN 기사활1-2
+SELECT_END
+
+* T1
+@ TALK "자네가 천상의 활을 가져다 준다고 하지 않았나?"
+@ TALK "물론.. 내가 가서 직접 사슬괴물을 처치하고 얻어도 되지만"
+@ TALK "진정한 무사는 자신과의 수련을 쌓아야 하기 때문에.."
+@ TALK "나는 내 자신과의 수련이 더 필요하거든..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "그 활은 웅담동굴에 살고 있는 사슬괴물에게 있네."
+@ TALK "그럼.. 그 활을 구해다 주리라 믿네."
+@ TALK "그 활을 구해준다면 내가 확실히 20000동의 돈을 주겠네!"
+@ WAIT
+@ END
+* 기사활1-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 9 "기사" 86 171 171
+@ COLOR 86 171 171
+@ IF ORDER_SPACE NOTHAVE THEN GO_DOWN NO_SPACE
+@ TALK "고맙네! 자네에게도 좋은 경험이 될 것이라 생각하네."
+@ TALK "그럼.. 그 활을 구하는 방법을 알려주지.."
+@ TALK "그 활은 웅담동굴에 살고 있는 사슬괴물에게 있네."
+@ TALK "물론.. 내가 가서 직접 사슬괴물을 처치하고 얻어도 되지만"
+@ TALK "진정한 무사는 자신과의 수련을 쌓아야 하기 때문에.."
+@ TALK "나는 내 자신과의 수련이 더 필요하거든..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "그럼.. 그 활을 구해다 주리라 믿네."
+@ TALK "그 활을 구해준다면 내 20000동의 돈을 주겠네!"
+@ WAIT
+@ TALK "그럼 서둘러 다녀오게!"
+@ ORDER 3 "기사에게 천상의 활을 구해주기"
+MENT "웅담동굴에 있는 사슬괴물을 처치하고"
+MENT "천상의 활을 얻어서 사주마을의 기사에게 가져다준다."
+MENT "그러면 사례로 20000동을 받을 수 있다."
+ORDER_END
+@ UNSEAL 17
+@ LOCATE_ENEMY 17 47 28 17 70 54
+@ GIVE NUM_TO_ALL 24
+@ END
+
+* 기사활1-2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 9 "기사" 86 171 171
+@ COLOR 86 171 171
+@ TALK "흠... 그래? "
+@ TALK "자네가 그렇다면 어쩔 수 없지.."
+@ TALK "물론.. 내가 힘이 부족해서 자네에게 그런 부탁을"
+@ TALK "했던 것은 아냐!"
+@ TALK "다만.. 조금 귀찮아서.."
+@ TALK "어쨌든.. 자네가 싫다니 어쩔 수 없지.."
+@ TALK "사실 20000 동이면 절대 작은 돈이 아닌데.."
+@ TALK "그럼.. "
+@ WAIT
+@ END
+
+* 기사활1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 9 "기사" 86 171 171
+@ COLOR 86 171 171
+@ TALK "자네.. 돌아왔구만!!"
+@ TALK "어서. 천상의 활을 주게!!"
+@ REMOVE ITEM 54
+@ TALK "오.. 이것이 천상의 활인가...?"
+@ TALK "정말로 멋진 활이로군.."
+@ TALK "정말로 고맙네!"
+@ TALK "자! 여기 약속한 돈 20000동일세"
+@ GIVE MONEY 20000
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "덕분에 좋은 활을 가지게 되었군!"
+@ TALK "그럼.. 자네도 앞으로 더욱 열심히 하여.."
+@ TALK "좋은 무사가 되길 바라네."
+@ GIVE NUM_TO_ALL 152
+@ REMOVE_ORDER 3
+@ REMOVE NUM_TO_ALL 24
+@ CHANGE 40
+@ WAIT
+@ END
+/------------------------------
+# 40
+# 8
+# 7
+# "기사"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 9 "기사" 86 171 171
+@ COLOR 86 171 171
+@ IF NUM HAVE 152 THEN GO_DOWN 기사활2
+@ TALK "나는 천상의 활을 가진 기사지!"
+@ TALK "자네는 알고 있나? 천상의 활은 말일세.."
+@ TALK "천상에서 인증을 얻은 자만이 가질 수 있다네.."
+@ TALK "흠.. 부러운가?"
+@ TALK "자네도 열심히 하면.. 나처럼 될 수 있으니.."
+@ TALK "자신감을 가지게!!"
+@ WAIT
+@ END
+
+* 기사활2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 9 "기사" 86 171 171
+@ COLOR 86 171 171
+@ TALK "오.. 자네는 나에게 천상의 활을 구해준 사람 아닌가?"
+@ TALK "자네 덕분에 활은 아주... 잘 쓰고 있네.."
+@ TALK "아직.. 마물들에게 사용을 하지는 않았지만 말일세.."
+@ TALK "하지만.. 조만간.. 마물들에게 내 실력을 보여줄"
+@ TALK "생각이라네.. 그러면 자네는 공포에 떠는 마물들을"
+@ TALK "볼 수 있을 거네."
+@ WAIT
+@ END
+
+/----------------------------------------------------
+/ 강 주변의 향진마귀를 없애기
+# 27 
+# 8
+# 11
+# "중개인"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ IF ITEM HAVE 233 THEN GO_DOWN 중계2-2B
+@ IF NUM HAVE 103 THEN GO_DOWN 중계다시
+@ TALK "어서 오게! 무슨 일거리를 찾고 있나?"
+@ TALK "항상 새로운 일거리가 가득하네!~"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<강 주변의 마물 퇴치>" GO_DOWN 중계2-2
+CASE "<이야기를 그만둔다>" GO_DOWN 중계끝
+SELECT_END
+
+* 중계2-2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "자네, 우리 마을의 강을 알고 있나?"
+@ TALK "요즘 그 강 근처에 향진마귀라는 녀석이 나타나서"
+@ TALK "강 전체를 오염시키고 있네.."
+@ TALK "덕분에 우리 마을 사람들은.. 물도 제대로 못 마시고"
+@ TALK "여간 불편한 게 아니네!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "향진 마귀라는 녀석을 퇴치해 주면 우리 마을에서"
+@ TALK "사례금으로 보검을 을 주겠네!"
+@ TALK "어떤가? 이 정도라면.. 충분히 할만한 거래라고"
+@ TALK "생각되는데..?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<좋습니다! 제가 이 일을 하죠!>" GO_DOWN 중계2-2A
+CASE "<별로 맘에 들지 않는군요>" GO_DOWN 중계끝
+SELECT_END
+
+* 중계2-2A
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "좋은 결정이네!"
+@ TALK "향진마귀는 하급 마물이라서 처치하기에"
+@ TALK "그리 어렵지도 않을걸세!"
+@ WAIT
+@ LOCATE_ENEMY 18 27 19 42 60 233
+@ UNSEAL 18
+@ CLEAR_BUFFER
+@ TALK "향진마귀는 낮에는 천사왕굴에 숨어있으니 지금 찾으려면"
+@ TALK "천사왕굴로 가면 될꺼야."
+@ TALK "그럼 좋은 소식을 기다리고 있겠네!"
+@ GIVE NUM_TO_ALL 103
+@ ORDER 8 "향진마귀 퇴치"
+MENT "천사왕굴에 있는 향진마귀를 퇴치하고"
+MENT "향진마귀의 호리병을 사주마을의 중개인에게"
+MENT "가져다준다."
+MENT "사례로 보검을 준다는데..."
+ORDER_END
+@ WAIT
+@ END
+
+* 중계2-2B
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "자네! 무사히 돌아왔구만!!"
+@ TALK "어떻게 향진마귀를 처치하기에 어렵지는 않았나?"
+@ TALK "자네 덕분에 이제 우리 마을은 더 이상 오염된"
+@ TALK "물을 먹지 않아도 될 것 같군!!"
+@ WAIT
+@ CLEAR_BUFFER
+@ REMOVE ITEM 233
+@ TALK "약속했던 보검일세!"
+@ GIVE ITEM 32 1
+@ TALK "천수검이라고 이 시대 최고의 검이지."
+@ TALK "통곡의 검이 이 세계에 없다는 가정에서 말이야."
+@ TALK "그 대신 천귀사신을 죽인 후 다시 내게 돌려주게."
+@ WAIT
+@ TALK "일을 잘 처리해 주어서 고맙군!"
+@ TALK "그럼 다음에 또 보세!"
+@ REMOVE_ORDER 8
+@ REMOVE NUM_TO_ALL 103
+@ CHANGE 28
+@ WAIT
+@ END
+
+
+/--------------------------------------------------------
+/정화의 석화수를 구하기
+# 28
+# 8
+# 11
+# "중개인"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ IF ITEM HAVE 234 THEN GO_DOWN 중계2-3B
+@ IF NUM HAVE 153 THEN GO_DOWN 중계다시
+@ TALK "어서 오게! 무슨 일거리를 찾고 있나?"
+@ TALK "자네를 필요로 하는 사람들이 많은 우리 마을은"
+@ TALK "항상 새로운 일거리가 가득하지!~ "
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<정화의 석화수 구하기>" GO_DOWN 중계2-3
+CASE "<이야기를 그만둔다>" GO_DOWN 중계끝
+SELECT_END
+@ END
+
+* 중계2-3
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "흠.. 자네 저번에 우리 마을이 향진 마귀에 의해"
+@ TALK "큰 피해를 입었던 것은 알고 있나?"
+@ TALK "이 향진마귀라는 녀석이 없어지고 나서..."
+@ TALK "한동안 피해가 없는가 했더니만.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "그 녀석이 죽기 전 뿌려놓은 독이 이제야 발생해서"
+@ TALK "우리 마을이 아주 큰 피해를 입고 있네!"
+@ TALK "아주... 끔찍한 사태지."
+@ TALK "사람들이 큰 불편을 겪고 있고.. 그 피해는"
+@ TALK "마을 전체로 확산되고 있네!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "이 사태를 해결하기 위해서는 정화의 석화수가"
+@ TALK "필요한데... 이 석화수는 저 멀리 곰바위 마을에서만"
+@ TALK "판매를 한다고 하는군.."
+@ TALK "거리가 좀 멀긴 하지만 그만큼 큰 보상을 약속하겠네"
+@ TALK "그 댓가로 내가 가지고 있는 근력과 경험치를 자네에게"
+@ TALK "주입시켜주지. 이상한 소리 같지만 이 지하세계에서는"
+@ TALK "그런 일들이 가능하지. 어떤가?"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<좋습니다! 제가 이 일을 하죠!>" GO_DOWN 중계2-3A
+CASE "<별로 맘에 들지 않는군요>" GO_DOWN 중계끝
+SELECT_END
+
+* 중계2-3A
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "잘 생각했네!"
+@ TALK "우리로서는 정말 반가운 선택이구만!"
+@ TALK "그럼 부탁하네!"
+@ TALK "빨리 떠나주게!! 한시가 급하니 말이야!!"
+@ WAIT
+@ GIVE NUM_TO_ALL 153
+@ ORDER 40 "정화의 석화수 구하기"
+MENT "곰바위 마을의 상점으로 가서 정화의 석화수를 구해"
+MENT "사주마을의 중개인에게 가져다준다."
+MENT " 댓가로 근력과 경험치를 주입시켜 준다던데..."
+ORDER_END
+@ END
+
+* 중계2-3B
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "자네 돌아왔구만!"
+@ TALK "어떻게 힘들지는 않았나?!"
+@ TALK "정화의 석화수는 가져왔겠지?"
+@ REMOVE ITEM 234
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "고맙네!"
+@ TALK "자네 덕분에 우리는 깨끗한 물을 마실 수 있겠군."
+@ TALK "사람들이 자네가 오기만을 손꼽아 기다렸다네.."
+@ TALK "나도 물론 그렇고."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "자! 정화의 석화수를 받았으니.. 약소을 지켜야겠지."
+@ TALK "현재 나의 근력 26과 경험치 5000을 줌세."
+@ INCREASE STRENGTH 26
+@ GIVE EXP 5000
+@ TALK "거기다 우리 마을 사람들의 성의로 2500동을 더 주겠네."
+@ GIVE MONEY 2500
+@ REMOVE_ORDER 40
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "일을 잘 처리해 주어서 고맙네!"
+@ TALK "그럼 다음에 또 볼 수 있으면 보자구!"
+@ CHANGE 41
+@ WAIT
+@ REMOVE NUM_TO_ALL 153
+@ END
+/-------------------------------------------------
+/갈라파고스 비늘 찾기
+# 41
+# 8
+# 11
+# "중개인"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ IF ITEM HAVE 229 THEN GO_DOWN 중계3-3B
+@ IF NUM HAVE 101 THEN GO_DOWN 중계3-3G
+@ IF NUM HAVE 103 THEN GO_DOWN 중계다시
+@ TALK "자네를 필요로 하는 사람들이 많은 우리 마을은"
+@ TALK "항상 새로운 일거리가 가득하지!~ "
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<갈라파고스 비늘 찾기>" GO_DOWN 중계3-3
+SELECT_END
+@ END
+
+* 중계3-3
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "혹시 자네 갈라파고스의 비늘을 알고 있나?"
+@ TALK "우리 마을의 약재상이 그 비늘을 구해오다가"
+@ TALK "그만 묘성 동굴에서 잃어버렸다고 하는데.."
+@ TALK "도저히 찾을 수가 없구만.."
+@ TALK ""
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "갈라파고스의 비늘을 찾아준다면"
+@ TALK "그 약재상이 돈 7000을 줄걸세!"
+@ TALK "어떤가? 한번 도전해 보겠나?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "이 일은.. 워낙 중요한 일이라"
+@ TALK "의뢰자가 더 큰돈을 걸어두었지!"
+@ TALK "어떤가? 한번 해보려나?"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<좋습니다! 제가 이 일을 하죠!>" GO_DOWN 중계3-3A
+CASE "<별로 맘에 들지 않는군요.>" GO_DOWN 중계끝
+SELECT_END
+@ END
+
+* 중계3-3A
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "어려운 일인데.. 맡아준다니 다행이군!"
+@ TALK "사실 이 일을 선뜻 맡겠다는 사람이 없어서"
+@ TALK "계속 고민이었네!"
+@ TALK ""
+@ TALK "그럼.. 잘 부탁하네!"
+@ GIVE NUM_TO_ALL 103
+@ IF ORDER_SPACE NOTHAVE THEN GO NO_SPACE
+@ ORDER 56 "갈라파고스 비늘 찾기"
+MENT "묘성동굴에서 갈라파고스의 비늘을 찾아 사주마을의"
+MENT "중개상에게 가져다준다."
+MENT "댓가로 돈 7000동을 받을 수 있다."
+ORDER_END
+@ UNSEAL 16
+@ LOCATE_ITEM 16 48 23 229
+@ WAIT
+@ END
+
+* 중계3-3B
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "자네 갈라파고스의 비늘을 가지고 왔군!"
+@ TALK "저번에 나랑 계약을 맺었던 그 무사가 맞는지"
+@ TALK "모르겠군.."
+@ TALK "그 무사에게는 갈라파고스의 비늘을 가져다주면"
+@ TALK "돈 7000 을 주기로 했지."
+@ TALK "갈라파고스의 비늘이 꼭 필요하다는 사람이 있어서"
+@ TALK "말이야.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "근데 자네 저번에 나랑 계약을 맺었던 그 사람인가?"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<맞습니다>" GO_DOWN 중계3-3C
+CASE "<전 그런 계약을 맺은 적이 없습니다>" GO_DOWN 중계3-3D
+SELECT_END
+
+* 중계3-3C
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "그렇지?!"
+@ TALK "내가 자네일 줄 알았다니까~"
+@ TALK "자! 어서 갈라파고스의 비늘을 주게!"
+@ REMOVE ITEM 229
+@ WAIT
+
+@ CLEAR_BUFFER
+@ WAIT "자! 여기 계약했던 돈이네."
+@ GIVE MONEY 7000
+@ TALK "좋은 거래였군!"
+@ TALK "일을 잘 처리해 줘서 고맙네!"
+@ TALK "다음에 또 들려주게!"
+@ REMOVE_ORDER 56
+@ REMOVE NUM_TO_ALL 103
+@ CHANGE 42
+@ WAIT
+@ END
+
+* 중계3-3D
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "자네가 아니었나?"
+@ TALK "아쉽군~ 어서 빨리 갈라파고스의 비늘을 구해야"
+@ TALK "할텐데..."
+@ TALK "혹시 자네 그 갈라파고스의 비늘을 팔 생각은 없나?"
+@ TALK "내가 큰 맘 먹고 돈 8000 을 주겠네!"
+@ TALK "어떤가?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<갈라파고스의 비늘을 판다>" GO_DOWN 중계3-3E
+CASE "<갈라파고스의 비늘을 팔지 않는다.>" GO_DOWN 중계3-3F
+SELECT_END
+@ END
+
+* 중계3-3E
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "잘 생각했네!!!"
+@ TALK "자네 덕분에 한고비를 넘기겠군!!"
+@ TALK "자! 어서 갈라파고스의 비늘을 주게!"
+@ REMOVE ITEM 229
+@ WAIT
+
+@ CLEAR_BUFFER
+@ WAIT "자! 여기 약속했던 돈이네."
+@ GIVE MONEY 8000
+@ TALK "좋은 거래였군!"
+@ TALK "결정을 시원하게 내려줘서 고맙네!"
+@ TALK "다음에 또 들려주게!"
+@ REMOVE_ORDER 56
+@ REMOVE NUM_TO_ALL 103
+@ REMOVE NUM 101
+@ CHANGE 42
+@ WAIT
+@ END
+
+* 중계3-3F
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "어쩔 수 없지.. 자네가 싫다면.."
+@ TALK "하지만.. 정말 아쉽군.."
+@ TALK "혹시라도 생각이 바뀌면 다시 와주게나!"
+@ GIVE NUM 101
+@ WAIT
+@ END
+
+* 중계3-3G
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "혹시 그 갈라파고스의 비늘을 팔려고 다시 들렸나?"
+@ TALK "내가 큰 맘먹고 돈 9000 을 주겠네!"
+@ TALK "웬만하면.. 좀 팔게나.."
+@ TALK "어떤가?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<갈라파고스의 비늘을 판다>" GO_DOWN 중계3-3E
+CASE "<갈라파고스의 비늘을 팔지 않는다>" GO_DOWN 중계3-3F
+SELECT_END
+
+* 중계3-3E
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "잘 생각했네!!!"
+@ TALK "자네 덕분에 한고비를 넘기겠군!!"
+@ TALK "자! 어서 갈라파고스의 비늘을 주게!"
+@ REMOVE ITEM 229
+@ WAIT
+
+@ CLEAR_BUFFER
+@ WAIT "자! 여기 약속했던 돈이네."
+@ GIVE MONEY 9000
+@ TALK "좋은 거래였군!"
+@ TALK "결정을 시원하게 내려줘서 고맙네!"
+@ TALK "다음에 또 들려주게!"
+@ REMOVE_ORDER 56
+@ REMOVE NUM_TO_ALL 103
+@ REMOVE NUM 101
+@ CHANGE 42
+@ WAIT
+@ END
+
+* 중계3-3F
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "어쩔 수 없지.. 자네가 싫다면.."
+@ TALK "하지만.. 정말 아쉽군.."
+@ TALK "혹시라도 생각이 바뀌면 다시 와주게나!"
+@ GIVE NUM 101
+@ WAIT
+@ END
+
+/========================================================
+/귀신 퇴치
+# 42
+# 8
+# 11
+# "중개인"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ IF NUM HAVE 106 THEN GO_DOWN 중계4-1B 
+@ IF NUM HAVE 103 THEN GO_DOWN 중계다시
+@ TALK "어서 오게나! 무슨 일거리를 찾나?"
+@ TALK "좋은 일거리들이 많이 있네!"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<마물 묘지의 귀신 퇴치>" GO_DOWN 중계4-1
+SELECT_END
+@ END
+
+* 중계4-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "요즘 마물 묘지에 이상한 귀신이 나타난다는"
+@ TALK "소문이 돌고 있네. 가뜩이나 그 근처는 괴물들이"
+@ TALK "즐비해서 가기를 꺼리는 곳인데..."
+@ TALK "귀신까지 나타난다니... 사람들이 겁을 먹고 있지."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "자세한 건 잘 모르겠고... 그 귀신은 기사의 모습을"
+@ TALK "하고 있다는 것 같더군. 그리고 낮에 나타나서"
+@ TALK "무언가 중얼거린다는데..."
+@ TALK "얼핏 보면.. 사람과 똑같이 생겨서.. 몰랐다가.."
+@ TALK "사실은 안 사람들이 요즘 크게 놀라고 있다네...."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "어떤가? 한번 이 일을 맡아볼텐가?"
+@ TALK ""
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<좋습니다! 제가 이 일을 하죠!>" GO_DOWN 중계4-1A
+CASE "<별로 맘에 들지 않는군요.>" GO_DOWN 중계끝
+SELECT_END
+
+* 중계4-1A
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ CLEAR_BUFFER
+@ TALK "잘 생각했네!"
+@ TALK "자네라면 충분히 할 수 있을 거라고 생각이 드는군."
+@ TALK "그럼.. 잘 해보게!"
+@ GIVE NUM_TO_ALL 103
+@ NEW_OBJECT 6 44 78 1 16 43
+@ IF ORDER_SPACE NOTHAVE THEN GO NO_SPACE
+@ ORDER 57 "마물 묘지의 귀신 퇴치"
+MENT "마물묘지에 나타나는 이상한 귀신을 퇴치한다."
+MENT "그 귀신은 기사의 모습을 하고 있다."
+MENT "기사 귀신을 퇴치한 후 사주마을의 중개인에게 가면"
+MENT "사례로 돈을 받을 수 있다. "
+ORDER_END
+@ WAIT
+@ END
+
+* 중계4-1B
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "자네 그 일을 해결해 주었더군!"
+@ TALK "근데 어떻게 그 대장장이와의 관계를 알았는지"
+@ TALK "궁금하군~"
+@ TALK "어쨌든 일을 잘 해결해 주었으니! 사례금으로 3000을"
+@ TALK "주겠네!"
+@ GIVE MONEY 3000
+@ TALK "다음에도 또 들려주게!!"
+@ REMOVE_ORDER 57
+@ REMOVE NUM_TO_ALL 106
+@ REMOVE NUM_TO_ALL 103
+@ CHANGE 38
+@ WAIT
+@ END
+/---------------------------------------------------
+/더 이상 일이 없슴.
+# 38
+# 8
+# 11
+# "중개인"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "흠.. 좋은 하루군.. 하지만 어쩌나?"
+@ TALK "요즘엔 일거리가 별로 없군."
+@ TALK "직접 세상을 돌아다니며 일거리를 찾아보는 것은 어떤가?"
+@ TALK "자네는 실력있는 퇴마사니까 말이야."
+@ WAIT
+@ END
+/--------------------------------------------------------
+# 43
+# 1
+# 6
+# "기사 귀신"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 9 "기사 귀신" 206 0 103
+@ COLOR 255 255 255
+@ CHANGE_GOS 19
+@ CHANGE_GOS 16
+@ IF ITEM HAVE 55 THEN GO_DOWN A4-E2
+@ IF NUM HAVE 103 THEN GO_DOWN A4-E1
+@ TALK "나...의... 활...을.. .. 찾.. 아... 다..... 오..."
+@ WAIT
+@ END
+
+* A4-E1
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 9 "기사 귀신" 206 0 103
+@ CHANGE_GOS 19
+@ CHANGE_GOS 16
+@ COLOR 255 255 255
+@ TALK "나..의.. 활...은.."
+@ TALK "어.. 디..에... 있.. 는.. 거.. 냐..?"
+@ CHANGE_GOS 19
+@ WAIT
+
+@ CLEAR_BUFFER
+@ CHANGE_GOS 16
+@ TALK "나....의.. 활.. 을.. 돌.. 려.. 줘...."
+@ CHANGE_GOS 19
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "아! 귀신이다!!"
+@ WAIT
+@ TALK "그런데 도대체 무슨 소리를 하는거지?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 9 "기사 귀신" 206 0 103
+@ COLOR 255 255 255
+@ CHANGE_GOS 16
+@ TALK "나.. 의.. 활.. 은.. 어.. 디.. 에..?"
+@ CHANGE_GOS 19
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "아무래도 자신의 잃어버린 활에 대해 이야기"
+@ TALK "하는 것 같은데..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "이것봐요! 도대체 무슨 활 이야기를 하는 겁니까?"
+@ TALK "당신은 또 누구요?"
+@ WAIT
+
+@ CHANGE_GOS 16
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 9 "기사 귀신" 206 0 103
+@ COLOR 255 255 255
+@ TALK "나... 는.... 주.. 인.. 이  하. 사..하..신.."
+@ TALK "활.. 을.. 잃..어.. 버..린.. 사.. 람.. 일..세."
+@ CHANGE_GOS 19
+@ WAIT
+
+@ CLEAR_BUFFER
+@ CHANGE_GOS 16
+@ TALK "어.. 느.. 날..   나.. 와.. 함..께.. 잠..들..어"
+@ TALK "있.. 는... 나.. 의...활.. 을.."
+@ TALK "누.. 군.. 가   가.. 져.. 가.. 버..렸..다..."
+@ CHANGE_GOS 19
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "그게 누구죠?!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 9 "기사 귀신" 206 0 103
+@ COLOR 255 255 255
+@ CHANGE_GOS 16
+@ TALK "그.. 것.. 은... 쇠.. 냄.. 새.. 가  나.. 는"
+@ TALK "사.. 나.. 이...."
+@ TALK "그.. 것.. 은..  사... 주.. 마.. 을.. 에.."
+@ TALK "있.. 다..."
+@ CHANGE_GOS 19
+@ CHANGE_GOS 16 
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "쇠 냄새?"
+@ TALK "사주 마을?"
+@ TALK "사주 마을에 있는 어떤 자인 것 같군.."
+@ WAIT
+@ GIVE NUM_TO_ALL 105
+@ END
+
+* A4-E2
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 9 "기사 귀신" 206 0 103
+@ COLOR 255 255 255
+@ CHANGE_GOS 19
+@ CHANGE_GOS 16
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 9 "기사 귀신" 206 0 103
+@ COLOR 255 255 255
+@ TALK "그.. 대.. 는... 나..의.. 활..을.. "
+@ TALK "가.. 지.. 고.. 있...다.."
+@ CHANGE_GOS 19
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ CHANGE_GOS 16
+@ TALK "그렇습니다. 당신의 활이 여기 있습니다!"
+@ TALK "물욕에 잠시 눈이 어두웠던 대장장이가 당신의"
+@ TALK "활을 훔쳐 간 모양이더군요."
+@ WAIT
+@ TALK "여기 당신의 활을 가져가시죠."
+@ WAIT
+@ CHANGE_GOS 19
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 9 "기사 귀신" 206 0 103
+@ COLOR 255 255 255
+@ CHANGE_GOS 16
+@ TALK "그대... 그..대..의  배..려..에.."
+@ TALK "나.. 는  깊..이..  감.. 사..한..다.."
+@ TALK "활..이.. 나..를.. 떠..나  새.. 로.. 운"
+@ TALK "주..인..을   찾.. 으..려.. 는  운..명..인..가?"
+@ TALK "이... 활....은   당..신..의.. 것"
+@ CHANGE_GOS 19
+@ WAIT
+
+@ CLEAR_BUFFER
+@ CHANGE_GOS 16
+@ TALK "난.. 이..제... 떠.. 나..겠..네.."
+@ REMOVE NUM_TO_ALL 103
+@ GIVE NUM_TO_ALL 106
+@ REMOVE_ORDER 57
+@ CHANGE_GOS 19
+@ CHANGE_GOS 16
+@ CHANGE_GOS 19
+@ WAIT
+@ REMOVE_OBJECT THIS
+
+/-------------------------------------------------
+* 중계2-3C
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "어서 떠나지 않고 뭐하는 건가?"
+@ TALK "미안하네만.. 정말로 상황이 급박하네.."
+@ TALK "부탁 좀 하겠네!"
+@ WAIT
+@ END
+/========================================================
+
+/--------------------------------------------------------
+* 마을6의 대장장이
+# 4
+# 9
+# 1
+# "대장장이" 
+# BASIC
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ COLOR 200 200 0
+@ FACE 8 "대장장이" 200 250 0
+@ TALK "어서오십쇼~ 무기를 팔기도 하고 수리도 해드립니다."
+@ TALK "무엇을 도와드릴깝쇼~                  "
+* 곰바위대장장이
+@ CLEAR_BUFFER
+@ COLOR 250 250 0
+@ PLAY 1.WAV
+@ SELECT 255 255 255
+CASE "장비 구입" GO_DOWN 장비고르기2
+CASE "장비 팔기" GO_DOWN 장비팔기
+CASE "장비 수리" GO_DOWN 장비수리
+CASE "주인과 이야기한다" GO_DOWN T6-1
+CASE "<나가기>" GO_DOWN 끝
+SELECT_END
+
+* T6-1
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 250 0
+@ SELECT 255 255 255
+CASE "<요즘 들려오는 소식에 대해>" GO_DOWN T6-1A
+CASE "<주변의 상황에 대해서>" GO_DOWN T6-1B
+CASE ""
+CASE "<그만 이야기 하기>" GO_UP 곰바위대장장이
+SELECT_END
+
+* T6-1A
+@ CLEAR_BUFFER
+@ COLOR 200 250 0
+@ FACE 8 "대장장이" 200 250 0
+@ BOX BLUE 5
+@ TALK "글쎄 요즘 들려오는 소식이라..?"
+@ TALK "근데 자네는 이 세계에 어떻게 들어왔나?"
+@ TALK "지하세계에 인간계의 전사들이 설치고 돌아다닌다고"
+@ TALK "하더니만.. 자네들이었군."
+@ TALK "어쨌든 자네들 덕분에 이 지하세계는 더욱 복잡하게"
+@ TALK "되어버렸어"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "마족들이 자네들을 잡으려고 혈안이 되어 있으니"
+@ TALK "조심하는 게 좋을 거야."
+@ WAIT
+@ GO_UP T6-1
+@ END
+
+* T6-1B
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 250 0
+@ TALK "주변의 상황이라? 뭐.. 우리들 지하인이야.. 마족들"
+@ TALK "때문에 어디든 이동할 수도 없고.. 조금은 갑갑한"
+@ TALK "생활을 하고 있지."
+@ TALK "그래서 새로운 정보나 상황 같은 것은 잘 모르네."
+@ WAIT
+@ IF ITEM HAVE 253 THEN GO_DOWN 곰바위1
+@ GO_UP T6-1
+
+* 곰바위1
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 250 0
+@ TALK "어.....?!"
+@ WAIT
+@ TALK "자네! 지금 자네가 가지고 있는 펜던트 말일세."
+@ TALK "그거 어디선가 많이 본 펜던트거든?"
+@ TALK "어디서 봤을까?"
+@ TALK ""
+@ TALK "아~ 맞다. 그 문장은 바로 레기오스 마족의 문장이야"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<레기오스 마족에 대해>" GO_DOWN T6-1C
+SELECT_END
+
+* T6-1C
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 8 "대장장이" 200 250 0
+@ COLOR 200 250 0
+@ TALK "레기오스 마족이라면 이 지하세계에서는 모르는"
+@ TALK "마족이나 사람이 없네. 우리들이 인간계에서"
+@ TALK "하나 둘 잡혀와 살고 있다는 것은 알고 있겠지?"
+@ TALK "지상 세계에서는 사람들이 사라지는 것을 이상하게"
+@ TALK "생각하지만 사실은 그 사라지는 사람들은 모두"
+@ TALK "마족들에게 납치되어 이 지하세계에서 살아가는"
+@ TALK "거라네.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "어느날 한 마족이 있었는데 그 마족이 이런 생각을"
+@ TALK "했다고 하네. 원래 혈통의 법칙을 따르면 완전 다른"
+@ TALK "종끼리 교배를 해야 우수한 품질이 나오는 법이거든"
+@ TALK "이건 식물이나 다른 동물도 마찬가지지.."
+@ TALK "그래서 이 마족은 인간과의 결합을 결심했지."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "인간의 여자 중에서 마력이 높은 여자를 데려다가"
+@ TALK "그 여자와 결혼을 해서 그 마족은 자식을 보았지."
+@ TALK ""
+@ TALK "그 마족의 가문이 바로 레기오스 가문이야."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "세월이 흐르고 그 자식들이 커 나갈 때 레기오스는"
+@ TALK "자식들의 엄청난 마력에 놀라움을 금치 못했네."
+@ TALK "일반 마족으로는 상상할 수 없는 능력으로서"
+@ TALK "대마도사인 레기오스를 능가하기 시작했지."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "하지만... 그 재능을 시기한 무리들이 있었지."
+@ TALK "인간과의 혼혈 계층이 장차 이 지하세계를 다스릴지"
+@ TALK "모른다는 소문이 지하세계에 돌기 시작하자"
+@ TALK "몇 몇 마족들이 반기를 들고 일어섰지."
+@ TALK "그들은 해로울 싹은 미리 잘라야 한다면서"
+@ TALK "레기오스 가문을 멸망시킬 것을 계획했지."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "결국 레기오스는 마족들의 연합 공격에 목숨을"
+@ TALK "잃고 말았네. 하지만 레기오스가 죽기 전 자식들에게"
+@ TALK "금쇄의 주문을 걸어 다행히 자식들이 죽는 것은"
+@ TALK "막았지만..."
+@ TALK ""
+@ TALK "자식인 레기오스와 레디나는 마력을 봉인 당하고"
+@ TALK "말았지..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "이야기가 길었군.. 지금 자네가 가지고 있는"
+@ TALK "그 펜던트가 바로.. 그 레기오스 집안의 문장일세!"
+@ GO_UP T6-1
+/--------------------------------------------------------
+# 5 
+# 9
+# 2
+# "마녀 레디나" 
+# BASIC
+# 100
+* 마녀 레디나
+@ CLEAR_BUFFER
+@ COLOR 240 20 190
+@ IF LEARN_MAGIC THEN GO_DOWN MAGIC_STOP
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ IF NUM HAVE 26 THEN GO_DOWN 레디나5-1
+@ IF ITEM HAVE 208 THEN GO_DOWN 레디나4-1
+/이두마신의 눈을 가지고 있으면 나타난다.
+/한마디로.. 이벤트 해결하다 들르면 나오는 이벤트
+@ IF ITEM HAVE 28 THEN GO_DOWN 마녀1
+@ IF NUM HAVE 107 THEN GO_DOWN 레디나6-1
+/두번 물어보면 대답하는 것
+* 마녀레디나명령
+@ CLEAR_BUFFER
+@ COLOR 240 20 190
+@ TALK "그래, 나한테 무슨 볼일이 있지요?"
+@ WAIT
+@ CLEAR_BUFFER
+@ COLOR 250 250 0
+@ PLAY 7.WAV
+@ SELECT 250 250 250
+CASE "마법 훈련" GO_DOWN 마법훈련2
+CASE "대화를 한다." GO_DOWN 마녀레디나
+CASE ""
+CASE "나가기" GO_DOWN 끝
+SELECT_END
+@ END
+
+* 마녀레디나명령2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 240 20 190
+@ TALK "그래, 나한테 무슨 볼일이 있지요?"
+@ WAIT
+@ CLEAR_BUFFER
+@ COLOR 250 250 0
+@ PLAY 7.WAV
+@ SELECT 250 250 250
+CASE "마법 훈련" GO_DOWN 마법훈련2
+CASE ""
+CASE "나가기" GO_DOWN 끝
+SELECT_END
+@ END
+
+* NNT1
+@ TALK "우리 남매의 주술을 풀려면 우선 인형의 기술자를"
+@ TALK "만나 봐야하네. 그는 지금 귀떼기 동굴에 잡혀있지."
+@ WAIT
+@ GO_UP 마녀레디나명령2
+
+* NNT2
+@ TALK "그 주술의 인형이 있으면 우리 남매의 주술을 풀 수"
+@ TALK "있지."
+@ WAIT
+@ GO_UP 마녀레디나명령2
+
+* 마녀레디나
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ IF NUM HAVE 21 THEN GO_UP NNT2
+@ IF NUM HAVE 74 THEN GO_UP NNT1
+@ TALK "흠.. 자네는 인간계에서 온 사람이로군...?"
+@ WAIT
+@ TALK "난 마녀 레디나라고 하지."
+@ WAIT
+@ CLEAR_BUFFER
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ BOX BLUE 5
+@ TALK "에?! 마녀 레디나님?!"
+@ TALK "그럼.. 레기오스 가문의?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "날 알고 있었나?"
+@ TALK "자네는 이 지하세계의 사람이 아닐텐데..?"
+@ WAIT
+@ CLEAR_BUFFER
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "천귀사신을 처치하기 위해 이 세계를 돌아다니며"
+@ TALK "여러가지 새로운 사실들을 알게 되었죠."
+@ TALK "마녀님에 대한 이야기는 많이 들었습니다."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "모두들.. 지난 이야기인걸.."
+@ TALK "이제.. 주술에 걸린.. 늙은이일 뿐이라네.."
+@ TALK "휴.."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "주술이라구요?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "그렇네... 주술에 걸려서.. 난.. 이미 어떤 힘도.."
+@ TALK "쓸 수가 없다네.."
+@ TALK ".. 아.. 마도청검만 있다면.."
+@ WAIT
+@ TALK "미안하군.. 자네에게 쓸데 없는 이야기를 늘어놓았군."
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<더 이야기를 해주세요.>" GO_DOWN 마녀1
+CASE "<이 곳에 볼 일이 있어서요.>" GO_UP 마녀레디나명령2
+SELECT_END
+@ END
+
+* 마녀1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ IF NUM HAVE 21 THEN GO_UP NNT2
+@ IF NUM HAVE 74 THEN GO_UP NNT1
+@ TALK "자네... 마도 청검을 가지고 있나?!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ IF ITEM NOTHAVE 28 THEN GO_DOWN NNO1
+@ TALK "예...  그런데.. 왜 그러시죠?!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "그.. 마도청검은 우리의 주술을 풀 수 있는 유일한"
+@ TALK "물건이라네! 그걸 자네가 가지고 있다니..."
+@ TALK ""
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "자네 그 마도청검을 나에게 팔 생각은 없나?"
+@ TALK "물론 그냥 달라는 것은 아니고 대신 내가 사례를"
+@ TALK "하도록 하겠네!"
+@ TALK "내가 돈 20000동을 주도록 하겠네!"
+@ TALK "어떤가?"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<좋습니다.>" GO_DOWN 레디나1
+CASE "<싫은데요.>" GO_DOWN 레디나2
+CASE "<그냥 이 곳에 볼 일이 있어서요.>" GO_UP 마녀레디나명령2
+SELECT_END
+* NNO1
+@ TALK "마도청검이 있어야 우리 레기오스 가문의"
+@ TALK "숙원을 풀 수 있게 되지"
+@ GO_DOWN 레디나4
+
+* 레디나1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "고맙네! 자네 덕분에 이제 우리 레기오스 가문의"
+@ TALK "숙원을 풀 수 있게 되었군"
+@ GO_DOWN 레디나4
+@ END
+
+* 레디나2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "뭐.. 자네가 싫다면 어쩔 수 없지!"
+@ TALK "하지만 그 마도청검은 자네에게 별로 필요가 없을텐데"
+@ TALK "나에겐 아주 소중한 물건일세..."
+@ TALK "아쉽군.. 나중에라도 생각이 변하면 찾아와 주게나!"
+@ TALK "나에겐.. 꼭 필요하거든..."
+@ GIVE NUM_TO_ALL 107
+@ WAIT
+@ END
+
+* 레디나4
+@ NEW_OBJECT 9 26 21 11 18 6  
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "숙원이라니! 무슨 말도 안 되는 소리를 하는 거냐?!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "아니! 오빠!! 어떻게 여기를?!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ BOX BLUE 5
+@ COLOR 160 160 200
+@ TALK "내가 조금만 한눈을 팔면 이 모양이라니까..."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "이 분은 누구죠?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "나의 오빠인 마도사 레기오스네..."
+@ TALK "어떻게... 된 거예요?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "이 분이 마도사 레기오스님이시군요..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "오빠도 나처럼 역시 주술에 걸려 있네.."
+@ TALK "우리들은.. 마법을 봉인 당했지."
+@ TALK "그래서 우리는 마력을 제대로 사용할 수 없다네.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "그래서 혼자 죽으려고 한 거냐?!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "오빠도 그랬잖아요!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "죽으려 하다니요?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "원래 자네가 가지고 있는 마도청검은 봉인의"
+@ TALK "혈옥이라는 것으로 그 혈옥으로 주술을 건 자에게"
+@ TALK "사용하면 그 주술을 풀 수 있는 것이지."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "그런데 왜 죽는다는 이야기를 하신거죠?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "그건.. 마도청검을 사용하려면 바로 자신의"
+@ TALK "목숨을 바쳐야 하기 때문이지"
+@ TALK "어떤 주술이든지 풀 수 있지만.. 그 댓가 치고는"
+@ TALK "큰 편이지."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "그럼.. 서로를 위해 서로 죽으려 마도청검을 그렇게"
+@ TALK "찾았단 말입니까?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "그렇네.. 게다가 이제 두 번째 주술이 작용하기"
+@ TALK "시작해서 우리들의 목숨은 얼마 남지 않았네..."
+@ TALK "한 명이라도 살아남아야.. 복수를 할 것이 아닌가?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "주술을 막을 수 있는 다른 방법은 없는 겁니까?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "유감스럽지만 현재로서는 아무 대책도 없네."
+@ TALK "혹시 주술의 인형을 구한다면 또 모르겠지만.."
+@ TALK "그건 워낙 재료를 구하기 힘들뿐더러.."
+@ TALK "그 인형을 만들 수 있는 단 사람마저..."
+@ TALK "이 지하세계에서 실종되어 버렸지."
+@ WAIT
+@ CLEAR_BUFFER
+@ IF ITEM NOTHAVE 28 THEN GO_DOWN NNO2
+@ TALK "자! 어서 그 마도청검을 내게 주게!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "그 마도청검은 내게 줘야 해요!"
+@ TALK "오빠는 주술이 풀리면 천귀사신을 없애야 하잖아요?!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "주술만 풀린다면 너도 천귀사신을 상대 할 수"
+@ TALK "있지 않으냐!!"
+@ TALK "내가 그 마도청검의 희생물이 되겠다!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "그만들 하시죠!"
+@ TALK "함께 살아갈 생각을 해야지. 어찌 서로 죽을"
+@ TALK "생각만을 하는 겁니까?!"
+@ TALK "마도청검은 드릴 수 없습니다!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "(무턱대고.. 거절은 했지만..."
+@ TALK "어떻게 이일을 해결하지...?"
+@ TALK "마을 사람들에게서 보다 정보를 얻어야겠어.)"
+@ WAIT
+@ GIVE NUM 74
+@ REMOVE NUM_TO_ALL 107
+@ END
+* NNO2
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "함께 살아갈 생각을 해야지. 어찌 서로 죽을"
+@ TALK "생각만을 하는 겁니까?!"
+@ TALK "제가 다른 방법을 찾아보지요."
+@ WAIT
+@ GIVE NUM 74
+@ REMOVE NUM_TO_ALL 107
+@ END
+
+&&&&&&&&&&&&&
+* 레디나6-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "자네 혹시 마도청검을 나에게 다시 줄 생각인가?"
+@ TALK "부탁일세.."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "죄송하지만.. 그 마도청검은 드릴 수 없습니다."
+@ TALK "제가 다른 방도를 찾아보지요."
+@ WAIT
+@ REMOVE NUM_TO_ALL 107
+@ WAIT
+@ GO_UP 마녀레디나명령2
+@ END
+
+&&&&&&&&&&&&
+/이두마신의 눈을 가지고 있으면 나타난다.
+/한마디로.. 이벤트 해결하다 들르면 나오는 이벤트
+
+* 레디나4-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "자네! 오랜만이군! 그 동안 어떻게 된 건가?!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "주술의 인형을 만들기 위해서..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "주술의 인형이라구?!"
+@ TALK "그 인형은 만들 수 있는 사람이 이 세상에서"
+@ TALK "단 한 사람밖에는 없네!"
+@ WAIT
+@ TALK "게다가 그 사람은 이두마신에.."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "이두마신은 죽었습니다. 상당히 죄책감을 느끼는 것"
+@ TALK "같았습니다. 인형 제작자는 지금 공명의 짚단을"
+@ TALK "찾으러 떠났구요."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "공명의 짚단이라구?!"
+@ TALK "그건.. 팔귀 계곡에 살고 있는 마물들에 의해서만"
+@ TALK "생산되는 물건인데..."
+@ TALK "그 어떤 외부 사람도 들어 갈 수 없고.."
+@ TALK "심지어는 그 팔귀 계곡이 어디인지 아는 사람도"
+@ TALK "드물지.. 외부로는 전혀 보이지도 않고..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "운 좋게 찾아냈다 하더라도.. 팔귀 계곡의 마물들은"
+@ TALK "상상을 초월하는 실력을 가지고 있어서.. 지금까지"
+@ TALK "그 팔귀 계곡 안으로 들어간 사람이 아무도 없네."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "그렇다면.. 그 인형 제작자는 어떻게..?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "우리를 위해 애써주는 건 고맙지만.."
+@ TALK "자네는 생각보다 큰 소용돌이에 휘말리고 있는지도"
+@ TALK "모르네. 나에게 마도청검을 넘겨주고.. 이쯤에서"
+@ TALK "포기하는 게 어떤가?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "큰 소용돌이에 휘말릴 운명이라면.."
+@ WAIT
+@ TALK "어쩔 수 없겠죠.."
+@ TALK "하지만 여기서 포기할 수는 없습니다."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "휴.. 어쨌든 조심하게..."
+@ WAIT
+@ GO_UP 마녀레디나명령2
+@ END
+
+* 레디나5-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "자네들.. 드디어 돌아왔구만.."
+@ TALK "지금 마계는 완전히 혼란에 빠져버렸네..."
+@ TALK "이제 천귀사신을 막아낼 수 있는 자는 아무도 없네."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "주술은 어떻게 되었죠?!"
+@ TALK "풀렸나요?!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 6 "마녀 레디나" 240 20 190
+@ COLOR 250 250 0
+@ TALK "그 또한 누군가의 농간이었네."
+@ TALK "물론 주술의 인형을 통해서 없앨 수 있었지만"
+@ TALK "그 또한 이제 모든 게 물거품이 되어버렸지."
+@ TALK "하지만.. 우리에게 주술을 건 저울마왕과 이두마신이"
+@ TALK "사라졌기 때문에 주술의 강도가 조금은 약해졌네."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "덕분에 오빠와 나는 마지막 힘으로 천귀사신을"
+@ TALK "공격하기 위해 준비중이네! 오빠는 이미 몇 가지 장비를"
+@ TALK "구하기 위해 천사왕굴쪽으로 떠났고 나도 또한 이제 곧"
+@ TALK "떠나네. 그 동안 우리를 위해 노력해 준 것!"
+@ TALK "정말 고맙게 생각하고 있네!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "우리의 힘이 얼마나 천귀사신에게 통할지 모르겠지만"
+@ TALK "우리가 죽기를 각오하고 싸운다면.. 어느 정도의 타격은"
+@ TALK "줄 수 있을 것이네.."
+@ TALK "그럼.. 몸 조심하게..."
+@ WAIT
+@ NEW_OBJECT 18 8 4 1 18 12
+@ PLAY MASO4.WAV
+@ CHANGE_GOS 19
+@ PLAY MASO4.WAV
+/ 레디나와 레기오스가 사라진다.
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "잠깐! 잠깐만요!"
+@ TALK "도대체.. 어떻게 하겠다는 건지..?"
+@ TALK "목숨을 가벼이 여기는 건가?!"
+
+@ CLEAR_BUFFER
+@ TALK "좋아! 이렇게 된 이상!"
+@ TALK "되든 안 되든 천귀사신과 부딪혀 본다!"
+@ TALK "나도 천사왕굴로 떠나야겠군!"
+@ GIVE NUM_TO_ALL 27
+@ WAIT
+@ REMOVE_OBJECT 9 11
+@ REMOVE_OBJECT THIS
+@ END
+
+/-----------------------------------------------------
+# 6
+# 9
+# 11
+# "마도사 레기오스"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 160
+@ COLOR 160 160 200
+@ TALK "난 마도사 레기오스다."
+@ TALK "난 별로 말하는 것을 좋아하지 않아."
+@ TALK "하지만 보석을 사고 싶다면.. 팔겠네.."
+@ WAIT
+@ CLEAR_BUFFER
+@ COLOR 250 250 0
+@ SELECT 255 255 255
+CASE "장신구 구입" GO_DOWN 장신구사기2
+CASE "<나가기>" GO_DOWN 끝
+SELECT_END
+@ END
+
+# 76
+# 9
+# 8
+# "보석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "보석상" 160 160 200
+@ COLOR 160 160 200
+@ TALK "여러가지 보석과 아이템들이 있지요."
+@ TALK "어떤 걸로 보여드릴까?"
+@ WAIT
+@ CLEAR_BUFFER
+@ COLOR 250 250 0
+@ SELECT 255 255 255
+CASE "장신구 구입" GO_DOWN 장신구사기2
+CASE "아이템 구입" GO_DOWN 아이템사기2
+CASE "<나가기>" GO_DOWN 끝
+SELECT_END
+@ END
+
+/--------------------------------------------------------
+# 7
+# 9 
+# 4
+# "상점 주인"
+# BASIC
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ IF NUM HAVE 153 THEN GO_DOWN 정화1
+@ TALK "안녕하세요. 필요한 아이템을 골라보세요."
+@ TALK "뭐~ 필요한 게 있습니까?"
+* 곰바위상점주인
+@ CLEAR_BUFFER
+@ BOX BLUE 6
+@ COLOR 250 250 0
+@ PLAY 3.WAV
+@ SELECT 250 250 255
+CASE "장비 구입" GO_DOWN 장비고르기1
+CASE "장비 팔기" GO_DOWN 장비팔기
+CASE "아이템 구입" GO_DOWN 아이템사기3
+CASE "아이템 팔기" GO_DOWN 아이템팔기
+CASE "주인과 이야기한다" GO_DOWN T6-2
+CASE "<나가기>" GO_DOWN 끝
+SELECT_END
+@ END
+
+* T6-2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ SELECT 255 255 255 
+CASE "<주변의 사람들에 대해서>" GO_DOWN T6-A
+CASE "<천귀사신에 대해서>" GO_DOWN T6-B
+CASE ""
+CASE "<이야기를 그만둔다>" GO_UP 곰바위상점주인
+SELECT_END
+@ END
+
+* T6-A
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ TALK "주변의 사람들이라..?"
+@ TALK "주변의 사람들 중 이야기 거리가 되는 것은"
+@ TALK "항상 레기오스 마족의 남매 이야기지."
+@ TALK "자네 아직 그 이야기를 듣지 못했나?"
+@ TALK "난 별로 이야기하고 싶지 않은데..."
+@ TALK "그들이 너무 답답하거든..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "주술의 인형을 이용하면 쉽게 해결할 문제인데도"
+@ TALK "그냥 있는 것을 보면 정말로 답답하지."
+@ TALK "물론 봉인의 혈옥을 사용하면 쉽게 주술을 풀 수"
+@ TALK "있지만.. 사람의 목숨을 건다는 것은.. 모험이야."
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<주술의 인형에 대해>" GO_DOWN T6-A1
+SELECT_END
+
+* T6-A1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ TALK "주술의 인형이라...?"
+@ TALK "이 지하세계에는 주술의 인형을 제작할 수 있는"
+@ TALK "단 한사람이 있었지. 하지만 레기오스가 죽고"
+@ TALK "레기오스 마족들의 남매가 주술에 걸렸을 때"
+@ TALK "그 인형을 제작하는 사람도 함께 실종되었네."
+@ TALK "우연치고는 우연이라 볼 수 없지."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "하지만 난 그 인형 제작자가 어디 있는지 알고 있네."
+@ TALK "아마 레기오스 남매도 알고 있을거야."
+@ TALK "다만.. 그 지역이 마신 성굴 근처인 귀떼기 동굴이고"
+@ TALK "이두마신이 살고 있는 곳이라.. 만약 갔다간 둘 다"
+@ TALK "죽을 것이기에 가지 못하는 거겠지."
+@ WAIT
+@ IF NUM HAVE 76 THEN END
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "흠.. 그렇다면.. 귀떼기 동굴에 가면 붙잡혀 있는"
+@ TALK "인형 기술자를 만나볼 수 있겠군."
+@ TALK "그렇다면.. 귀떼기 동굴로 가자."
+@ WAIT
+@ ORDER 7 "인형기술자를 만난다."
+MENT "귀떼기 동굴에 있는 인형 기술자를 만난다."
+ORDER_END
+@ NEW_OBJECT 14 47 70 1 12 8
+&&&&&&&&&&&&&
+/귀떼기동굴(47,70) 에 아이디 1인 이벤트 번호 8인 인형 기술자를 생성시킨다.
+@ GO_UP T6-2
+
+* T6-B
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ TALK "천귀사신이라..?"
+@ TALK "혼란스러운 마계를 통일한 위대한 마족이지."
+@ TALK "물론 그 가운데서 그가 저지른 악행도 많지만"
+@ TALK "마족에게 악행이란 당연한 일이지 않겠나?"
+@ WAIT
+@ GO_UP T6-2
+
+* 정화1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "안녕하세요! 정화의 석화수를 구하기 위해서 왔습니다."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 7 "상점 주인" 250 220 0
+@ COLOR 250 220 0
+@ TALK "정화의 석화수라고? 아.. 자네들이 바로 사주마을에서"
+@ TALK "온 사람들이로구만... 지금 사주마을이 물 때문에 난리가"
+@ TALK "났다고 하더니..."
+@ TALK "어서 정화의 석화수를 가지고 가게나!"
+@ GIVE ITEM 234 1
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "물이라는게.. 있을 때는 잘 모르지만.. 없어야.. 소중함을"
+@ TALK "알 수 있지."
+@ TALK "어서 떠나게!"
+@ WAIT
+@ REMOVE NUM_TO_ALL 153
+@ END
+
+/--------------------------------------------------------
+# 21
+# 9 
+# 5
+# "무사"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 10 "무사" 86 171 171
+@ COLOR 86 171 171
+@ TALK "오.. 자네는 퇴마사로군!"
+@ TALK "이 곳에서는 인간들은 검을 사용해서는 안되지.."
+@ TALK "검을 사용하는 동료를 보니 반갑군!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "그렇다면.. 당신은 어떻게 이 곳에서 무사의 생활을"
+@ TALK "하고 있는 거죠?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 10 "무사" 86 171 171
+@ COLOR 86 171 171
+@ TALK "나는 인간계에서 무사로 활동하던 이름 없는 낭인일세."
+@ TALK "하지만 이곳에서는 마물들의 검술을 가르치고 있지."
+@ TALK "마물들을 상대로 검술을 가르친다고 욕하겠지만.."
+@ TALK "나의 딸이 마물들에게 인질로 잡혀 있기 때문에.."
+@ TALK "어쩔 수 없이 이 짓을 하고 있지."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "그건 그렇고 자네는 검술에 대해 잘 알고 있는가?"
+@ TALK "잘 알고 있다면 내 할말이 없지만.."
+@ TALK "이왕이면 자네에게 검의 기본에 대해 알려주고 싶군."
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<말씀을 듣고 싶습니다.>" GO_DOWN 배우기
+CASE "<별로 듣고 싶지 않군요.>" GO_DOWN 안배우기
+SELECT_END 
+
+* 배우기
+@ CLEAR_BUFFER
+@ BOX BLUE 7
+@ FACE 10 "무사" 86 171 171
+@ COLOR 86 171 171
+@ TALK "잘 생각했네!"
+* 배우기RE
+@ CLEAR_BUFFER
+@ TALK "무조건 휘두르기만 한다면 그것은 검이 아니지."
+@ TALK "검술의 어떤 면을 알고 싶은가?"
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<기검체일체에 대해>" GO_DOWN 배우기1-1
+CASE "<안신보수에 대해>" GO_DOWN 배우기2-1
+CASE "<검에 몸을 숨기다>" GO_DOWN 배우기3-1
+CASE "<발도술에 대해>" GO_DOWN 배우기4-1
+CASE "<활의 사용에 대해> " GO_DOWN 배우기5-1 
+CASE "    "
+CASE "<이야기를 그만 둔다> " GO_DOWN 배우기X
+SELECT_END
+
+* 배우기1-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5 
+@ FACE 10 "무사" 86 171 171
+@ COLOR 86 171 171
+@ TALK "검술의 기본은.. 역시 기검체일체가 아니겠나?"
+@ TALK "기라 함은 정신의 힘이요. 검은 자신이 들고 있는"
+@ TALK "도를 말하며, 체는 자네의 몸일세."
+@ TALK "단순히 칼을 휘두르는 것만으로는 적을 벤다고"
+@ TLAK "할 수 없지..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "기와 검과 체가 한순간에 하나로 뭉쳐 적을 가를 때"
+@ TALK "진정으로 적을 가르는 것일세!"
+@ TALK "진정으로 하나의 기검체일체를 이룬다면.."
+@ TALK "칼로 돌을 가르는 일도 가능할 걸세!"
+@ GO_UP 배우기RE
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "진정한 검의 길은 자신 안에 있는 거지."
+@ TALK "자신을 이기면.. 검의 길이 보일 걸세!"
+@ WAIT
+@ END
+
+* 안배우기
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 10 "무사" 86 171 171
+@ COLOR 86 171 171
+@ TALK "흠.. 난 자네에게 조금이라도 도움을 주려고 했는데"
+@ TALK "뭐.. 자네가 싫다면.. 어쩔 수 없지!"
+@ TALK "검의 길은 자신에게 달려 있는 거니까.."
+@ TALK "열심히 하도록 하게!"
+@ WAIT
+@ END
+
+* 배우기2-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 10 "무사" 86 171 171
+@ COLOR 86 171 171 
+@ TALK "흠.. 나도 그리 검에 대해 잘 아는 것은 아니네."
+@ TALK "하지만.. 검에 있어서의 가장 기본적으로 알아야"
+@ TALK "할 것은 역시 '眼身步手(안신보수)' 일세."
+@ TALK "'眼身步手(안신보수)'란 눈과 몸과 발과 손을 의미하는데.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "검을 치고 나감에 있어 그 순서가 상당히 중요하네."
+@ TALK "이 '眼身步手(안신보수)'란 그 순서를 뜻하지."
+@ TALK "먼저 눈으로 적을 보고 몸을 움직이고,"
+@ TALL "발이 몸을 따라가고, 마지막으로 손으로 적을"
+@ TALK "처리하는 것일세!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "자네도 검을 사용함에 있어 이 말을 잊지 말게나!"
+@ TALK "기억하게!! 진정한 검사는 항상 긴장하고"
+@ TALK "또... 노력하며 살아야 하네!!"
+@ WAIT
+@ GO_UP 배우기RE
+@ END
+
+* 배우기3-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 10 "무사" 86 171 171
+@ COLOR 86 171 171
+@ TALK "자네 혹시 검에 몸을 숨긴다는 이야기를 알고 있나?"
+@ TALK "물론... 자기의 몸보다 더 큰 검을 가지고 다닌다면"
+@ TALK "당연한 이야기겠지만.. 실제로 그런 큰 검은"
+@ TALK "싸움에서 상당히 불리하지.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "발도와 쾌검이 승부를 좌우한다고 해도 과언이"
+@ TALK "아닐세."
+@ TALK "하지만.. 실제 승부는 순간의 빈틈을 노리는 거지."
+@ TALK "검에 몸을 숨긴다는 것은 그때 필요한 것이네."
+@ TALK "상대방의 시선을 검으로 차단하면서 적의 모든"
+@ TALK "공격 거리를 검으로 차단할 수만 있다면..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "이것이 바로 검에 몸을 숨기는 것이지.."
+@ TALK "상대방은 나의 몸에 칼끝 하나도 대지 못한 채"
+@ TALK "나의 검에 완전히 차단을 당하게 되네."
+@ TALK "검도에서의 중단 자세가 가장 중요하다고 하는 것도"
+@ TALK "바로 이 때문이지."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "검과 자신이 하나가 된다는 것도 이와 같은"
+@ TALK "이치일세.. "
+@ TALK "검을 들고 있을때 검을 들고 있는 게 아니라"
+@ TALK "마치 자신의 몸의 연장을 들고 있다는 그런 느낌이"
+@ TALK "필요한거지.."
+@ TALK "자네도.. 그런 경지까지 도달하려면.. 열심히"
+@ TALK "하도록 하게!"
+@ WAIT
+@ GO_UP 배우기RE
+@ END
+
+* 배우기4-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 10 "무사" 86 171 171
+@ COLOR 86 171 171
+@ TALK "승부에 있어서 가장 중요한 것은 역시 발도술일세"
+@ TALK "진검 승부라면 누가 더 먼저 검을 뽑는가에 따라"
+@ TALK "승패가 많이 갈리지!"
+@ TALK "자네는 발도술에 자신이 있나?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "발도술은 끊임없는 연습만이 비결이네.."
+@ TALK "검을 빨리 뽑기 위해서는 온몸의 신경을 집중시켜야"
+@ TALK "하지만 또 온몸이 굳어 있어서는 안되네."
+@ TALK "마치 검이 튕겨 나오듯 자신의 손에 붙어서"
+@ TALK "뽑혀 나오는 것이 진정한 발도술 이라고 할 수 있지."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "자네도 발도술의 대가가 되어야 진정한 검사라"
+@ TALK "불리울 수 있을걸세."
+@ TALK "다시 말해 두지만.. 발도술을 생명과 직결되지..."
+@ WAIT
+@ GO_UP 배우기RE
+@ END
+
+* 배우기5-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 10 "무사" 86 171 171
+@ COLOR 86 171 171
+@ CLEAR_BUFFER
+@ TALK "잘 생각했네!"
+@ TALK "'화살을 쏘기 전에는 8가지를 생각하라' 는 말이"
+@ TALK "있지! 그중 첫째가 바로 (先察地形)!"
+@ TALK "쏘기 전에는 먼저 지형을 살펴 쏘고자 하는 대상의"
+@ TALK "위치를 살피고.."
+@ WAIT
+@ TALK "둘째! (後觀風勢)! 바람의 방향을 파악해 쏘고자"
+@ TALK "하는 방향과의 힘을 조절한다."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "셋째로는 자세에 있어 (非丁非八)!"
+@ TALK "발을 정(丁)자도 아니고 팔(八)자도 아니게 두어야"
+@ TALK "하며..."
+@ TALK "네째! (胸虛腹實)! 몸의 중심은 허리에 두어"
+@ TALK "흔들림이 있어서는 안된다."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "다섯째! (前推泰山). 앞으로 미는 손은 태산처럼"
+@ TALK "무겁게 하여야 하며,"
+@ WAIT
+@ TALK "여섯째! (發如虎尾) 활을 쏜다는 느낌이 아닌 화살을"
+@ TALK "놓는다는 느낌으로 대해야 하지."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "일곱째! (發而不中)! 그렇게 쏜 이후에 맞지 않으면"
+@ WAIT
+@ TALK "여덟째(發而不中)!"
+@ TALK "자신을 돌이켜 반성한다!"
+@ WAIT
+@ TALK "이것이 바로 활을 쏘는 8가지 기본일세."
+@ TALK "이것만 유념한다면 활을 쏘는 실력이 더욱"
+@ TALK "좋아질 걸세!"
+@ WAIT
+@ GO_UP 배우기RE
+@ END
+
+* 배우기X
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 10 "무사" 86 171 171
+@ COLOR 86 171 171
+@ TALK "나의 교육이 좀 지루할 수도 있지만.."
+@ TALK "자네에게는 큰 도움이 될 걸세..."
+@ TALK "또 배우고 싶으면 언제든 들리게."
+@ WAIT
+@ END
+/----------------------------------------------------
+# 26
+# 9
+# 10
+# "아이템 상인"
+# BASIC
+# 100
+* 아이템상인명령1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 5 "아이템 상인" 250 200 0
+@ COLOR 250 200 0
+@ TALK "안녕하세요. 무엇이 필요합니까?"
+@ TALK "  "
+* 곰바위아이템
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ COLOR 250 250 0
+@ PLAY 5.WAV
+@ SELECT 255 255 255
+CASE "아이템 구입" GO_DOWN 아이템사기2
+CASE "아이템 팔기" GO_DOWN 아이템팔기
+CASE "주인과 이야기 한다." GO_DOWN 곰바위아이템T-1
+CASE "나가기" GO_DOWN 끝
+SELECT_END
+
+* 곰바위아이템T-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 5 "아이템 상인" 250 200 0
+@ COLOR 250 200 0
+@ TALK "아.. 당신은 못보던 얼굴이군요..."
+@ TALK "소문에 인간계에서 사람들이 왔다고 하더니.."
+@ TALK "당신들이었나요?"
+@ TALK "아... 마물들에게 납치되어 이 곳으로 온지 어느덧.."
+@ TALK "벌써.. 10년이 흘렀군요.."
+@ TALK "아직 세상은 마물들 손에 넘어가지 않았겠죠?"
+@ TALK "마물들은 우리를 단념시키기 위해 계속 인간계가"
+@ TALK "멸망했다고. 유언비어를 퍼뜨리는데..."
+@ TALK "전.. 우리 부모님 걱정에 그 소리만 들으면.."
+@ TALK "잠을 자지 못한답니다."
+@ CLEAR_BUFFER
+@ TALK "마물들은.. 우리를 인질로 잡고.. 부려 먹고 있죠.."
+@ TALK "그 피해를 보는 사람이 많죠."
+@ TALK "사주 마을에 청하 아가씨도 그 피해자 중 한사람이죠."
+@ TALK "무사님.. 부디 그 불쌍한 아가씨를 도와주세요.."
+@ WAIT
+@ GO_UP 곰바위아이템
+/----------------------------------------------------
+/중개인
+# 29
+# 9
+# 7
+# "중개인"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "어서 오게! 무슨 일거리를 찾나?"
+@ TALK "이 일은 어떤가?~"
+@ WAIT
+@ CLEAR_BUFFER
+@ IF ITEM HAVE 249 THEN GO_DOWN 중계1-1B 
+@ IF NUM HAVE 104 THEN GO_DOWN 중계다시
+@ SELECT 255 255 255
+CASE "<마물 갈라파고스 퇴치>" GO_DOWN 중계1-1
+CASE "<이야기를 그만둔다.>" GO_DOWN 중계끝
+SELECT_END
+@ END
+
+* 중계1-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "흠... 그일은 그리 쉬운 일은 아닌데.."
+@ TALK "게다가 자네는 이 근처에서 본 적이 없어서.?"
+@ TALK "게다가.. 요즘에서 우리가 마물에 대항하지.."
+@ TALK "예전에는 마물에.. 대항조차 할 수 없었지..."
+@ TALK "아주.. 믿을 만한 사람이 아니라면.. 웬만해서는"
+@ TALK "잘 맡기지 않는 편이네."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "하지만 자네가 맡겠다면 어쩔 수 없지."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "자네가 죽더라도.. 난 어떤 책임도 지지 않는다는 걸"
+@ TALK "명심하게!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "지금 저울마왕 언덕으로 가면 아마 '갈라파고스'라는"
+@ TALK "마물이 있을껄세! 그 마물이 나타나면서 저울마왕 언덕을"
+@ TALK "점령해 버려서.. 우리는 그쪽으로 지나다닐 수가"
+@ TALK "없게 되어버렸지."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "어떤가? 만약 그 갈라파고스 녀석을 없애주면"
+@ TALK "우리 마을에서 자네에게 아주 좋은 활을 주도록 하지!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<좋습니다! 이 일을 맡도록 하죠!>" GO_DOWN 중계1-1A
+CASE "<아무래도 이 일은 제게 벅찰 것 같군요.>" GO_DOWN 중계끝
+SELECT_END
+
+* 중계1-1A
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ IF ORDER_SPACE NOTHAVE THEN GO NO_SPACE
+@ TALK "옳은 결정이기를 바라네!"
+@ TALK "그럼 '갈라파고스'를 없앤 후 그 증표로"
+@ TALK "그 녀석이 전에 마을에서 빼앗아간 호마강궁 제작서를"
+@ TALK "찾아오도록 하게!"
+@ GIVE NUM_TO_ALL 104
+@ ORDER 51 "마물 갈라파고스의 퇴치"
+MENT "저울마왕 언덕으로 가서 '갈라파고스'라는"
+MENT "마물을 퇴치하고 '호마강궁 제작서'를 곰바위 마을의"
+MENT "중개인에게 가져온다."
+MENT " 사례로 좋은 활을 준다고 한다."
+ORDER_END
+@ LOCATE_ENEMY 1 106 65 40 85 249
+@ LOCATE_ENEMY 1 102 61 12 45 0
+@ LOCATE_ENEMY 1 105 62 12 45 0
+@ LOCATE_ENEMY 1 109 63 12 45 0
+@ LOCATE_ENEMY 1 107 64 12 45 0
+@ WAIT
+@ END
+
+* 중계1-1B
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "자네 돌아왔구만!"
+@ TALK "어떻게 갈라파고스는 처치하고 왔나?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "그럼요! 여기 그 놈이 훔쳐갔던 호마강궁 제작서가"
+@ TALK "있습니다."
+@ REMOVE ITEM 249
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "약속대로 잘 처리하고 왔구만!"
+@ TALK "여기 약속했던 활이야. 이게 바로 그 책에 적혀있던"
+@ TALK "호마강궁이지."
+@ GIVE ITEM 56 1
+@ TALK "그럼 다음에 또 보세!"
+@ TALK "흠.. 자네가 믿을 만한 퇴마사라는 것을 알 수 있겠어."
+@ REMOVE_ORDER 51
+@ REMOVE NUM_TO_ALL 104
+@ CHANGE 30
+@ WAIT
+@ END
+/--------------------------------------------------------
+/미시림의 풀을 구해오기
+# 30
+# 9
+# 7
+# "중개인"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "어서 오게! 무슨 일거리를 찾나?"
+@ TALK "이 일은 어떤가?~"
+@ WAIT
+@ CLEAR_BUFFER
+@ IF ITEM HAVE 230 THEN GO_DOWN 중계1-2B 
+@ IF NUM HAVE 104 THEN GO_DOWN 중계다시
+@ SELECT 255 255 255
+CASE "<미시림의 풀을 구해오기>" GO_DOWN 중계1-2
+CASE "<이야기를 그만둔다.>" GO_DOWN 중계끝
+SELECT_END
+
+* 중계1-2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "마물묘지에서 풀을 구해오는 일을 하고 싶은가?"
+@ TALK "이번 일은 별로 어려운 일은 아닐세."
+@ TALK "마물묘지로 가서 미시림의 풀만 가져오면"
+@ TALK "되는 걸세!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "사실은 내가 가야 하지만... 마물묘지는 마물들로"
+@ TALK "가득차 있어서 말일세.."
+@ TALK "미시림의 풀은 마물묘지에서만 자라는 것이라..."
+@ TALK "마물묘지의 남서쪽에 미시림이 자라는 곳이 있네."
+@ TALK "그 근처에는 허름한 집도 있으니까 찾기가 쉬울 걸세."
+@ WAIT 
+
+@ CLEAR_BUFFER
+@ TALK "이건 내 개인적인 일이어서.. 큰돈은 못 주고"
+@ TALK "대신 내가 산삼 3뿌리를 주겠네!"
+@ TALK "산삼은 상당히 비싼 것이고.. 하니깐.."
+@ TALK "자네로서는 별로 손해날 것이 없을 것 같군."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "어떤가? 이일을 맡아 볼 텐가?"
+@ SELECT 255 255 255
+CASE "<좋습니다! 이 일을 맡도록 하죠!>" GO_DOWN 중계1-2A
+CASE "<아무래도 이 일은 제게 벅찰 것 같군요.>" GO_DOWN 중계끝
+SELECT_END
+
+* 중계1-2A
+@ IF ORDER_SPACE NOTHAVE THEN GO NO_SPACE
+@ CLEAR_BUFFER
+@ TALK "잘 생각했네!"
+@ TALK "이번 일은 별로 어렵지 않으니.."
+@ TALK "어서 다녀오게나!"
+@ LOCATE_ITEM 6 43 78 230
+@ ORDER 52 "미시림의 풀 구하기"
+MENT "마물묘지 남서쪽 허름한 집 근처에서 미시림의 풀을 찾는다."
+MENT "미시림의 풀을 곰바위 마을의 중개인에게 전해준다."
+MENT "포상으로 산삼 3뿌리를 받을 수 있다."
+ORDER_END
+@ WAIT
+@ END
+
+* 중계1-2B
+  
+@ CLEAR_BUFFER
+@ TALK "오.. 자네 잘 다녀 왔구만!"
+@ TALK "별로 어렵진 않았지?"
+@ TALK "고맙네! 미시림의 풀은 잘 쓰겠네!"
+@ REMOVE ITEM 230
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "자! 약속 했던데로 내가 산삼을 주도록 하지!"
+@ GIVE ITEM 168 3 
+@ TALK "좋은 거래였군."
+@ TALK "다음에 또 찾아주게!!"
+@ REMOVE_ORDER 52
+@ REMOVE NUM_TO_ALL 104
+@ CHANGE 31
+@ WAIT
+@ END
+/--------------------------------------------------------
+/돈 40000을 구해오기
+# 31
+# 9
+# 7
+# "중개인"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "어서 오게! 무슨 일거리를 찾나?"
+@ TALK "이 일은 어떤가?~"
+@ WAIT
+@ CLEAR_BUFFER
+@ IF MONEY GE 40000 && NUM HAVE 109 THEN GO_DOWN 중계1-3B 
+@ IF NUM HAVE 109 THEN GO_DOWN 중계다시
+@ SELECT 255 255 255
+CASE "<돈 40000 동을 구해오기>" GO_DOWN 중계1-3
+CASE "<이야기를 그만 둔다.>" GO_DOWN 중계끝
+SELECT_END
+
+* 중계1-3
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "흠.. 지금 급하게 돈 40000 동이 필요하다는 사람이"
+@ TALK "있네. 그 사람은 아마도 어머니가 아프셔서"
+@ TALK "그 약을 살 돈을 필요로 하는 것 같은데..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "혹시 자네에게 돈 40000 이 있나?"
+@ TALK "그 사람은 돈 40000 을 받는 댓가로 집안 대대로"
+@ TALK "내려오는 가문의 보검을 주겠다고 하는군.."
+@ TALK "그 집안이 원래 대대로 장군의 집안이라.."
+@ TALK "아마.. 상당한 값어치가 있는 검 일거야.."
+@ TALK ""
+@ TALK "내가 사고 싶지만.. 요즘 돈이 궁해서.."
+@ WAIT
+@ TALK "어떤가? 자네 생각이 있는가?"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<좋습니다! 제가 이 일을 하죠!>" GO_DOWN 중계1-3A
+CASE "<아무래도 그 많은 돈을 마련하려면... 어렵겠는데요.>" GO_DOWN 중계끝
+SELECT_END
+@ END
+
+* 중계1-3A
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "좋은 생각일세!"
+@ TALK "이런 기회는 흔치 않지!"
+@ TALK "게다가 무사라면 누구나 검 욕심이 강하지 않은가?"
+@ TALK "그럼 다음에 보세!"
+@ GIVE NUM_TO_ALL 109
+@ WAIT
+@ IF ORDER_SPACE NOTHAVE THEN GO NO_SPACE
+@ ORDER 53 "돈 40000동 구하기"
+MENT "돈 40000동을 모아다가 곰바위 마을의 중개인에게"
+MENT "가져다준다. "
+MENT "댓가로 대대로 내려오는 검을 준다고 한다."
+ORDER_END
+@ END
+
+* 중계1-3B
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "자네! 벌써 돈을 다 모은 건가?"
+@ TALK "정말 빠르군.. 그 돈을 모으려면 상당한 시간이"
+@ TALK "걸릴 것이라고 생각했었는데.."
+@ WAIT
+@ TALK "난 그 검이 자네들 것이라고 짐작했었지!"
+@ TALK "자 그럼 돈을 주게!"
+@ REMOVE MONEY 40000
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "자! 여기 자네를 위한 검이 있네!"
+@ GIVE ITEM 32 1
+@ TALK "천수검이라는 아주 좋은 검이구만!"
+@ TALK "잘 사용하게!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "좋은 거래였군!"
+@ TALK "다음에도 일거리가 있을테니 또 찾아오게나!"
+@ REMOVE_ORDER 53
+@ REMOVE NUM_TO_ALL 109
+@ CHANGE 32
+@ WAIT
+@ END
+/-------------------------------------------------
+/물건 배달하기
+# 32
+# 9
+# 7
+# "중개인"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "어서 오게! 무슨 일거리를 찾나?"
+@ TALK "이 일은 어떤가?~"
+@ WAIT
+@ CLEAR_BUFFER
+@ IF NUM HAVE 108 THEN GO_DOWN 중계다시
+@ SELECT 255 255 255
+CASE "<물건 배달하기>" GO_DOWN 중계3-1
+CASE "<이야기를 그만 둔다.>" GO_DOWN 중계끝
+SELECT_END
+
+* 중계3-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "물건 배달하는 일이 하나 들어와 있네."
+@ TALK "사주 마을에 있는 대장장이에게 전해줄 물건인데"
+@ TALK "아직... 마땅한 사람이 없어서 말이야."
+@ TALK "어떤가? 자네가 한번 해보겠나?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "내가 주는 개골차잎을 가지고 가서.."
+@ TALK "물건을 제대로만 전해 준다면 자네에게 사례금으로"
+@ TALK "돈 5000 을 받을 수 있을거야."
+@ TALK "별로 어려운 일은 아닐걸세!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<좋습니다! 제가 이 일을 하죠!>" GO_DOWN 중계3-1A
+CASE "<별로 맘에 들지 않는군요.>" GO_DOWN 중계끝
+SELECT_END
+@ END
+
+* 중계3-1A
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "잘 생각했네! 뭐 별로 어려운 일도 아니니까..."
+@ TALK "보수가 좀 작긴 하지만 일에 비하면 작은 것도"
+@ TALK "아니라고 생각되는군~"
+@ GIVE ITEM 213 1
+@ GIVE NUM_TO_ALL 108
+@ WAIT
+@ TALK "그럼 잘 부탁하네!"
+@ IF ORDER_SPACE NOTHAVE THEN GO NO_SPACE
+@ ORDER 54 "물건 배달하기"
+MENT "사주 마을에 있는 대장장이에게 개골차잎을" 
+MENT "전해준다."
+MENT "포상으로 돈 5000동을 벌 수 있다."
+ORDER_END
+@ CHANGE 33
+@ END
+/--------------------------------------------------
+# 33
+# 9
+# 7
+# "중개인"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ IF ITEM HAVE 231 THEN GO_DOWN 중계3-2B
+@ IF NUM HAVE 104 THEN GO_DOWN 중계다시
+@ TALK "어서 오게! 무슨 일거리를 찾나?"
+@ TALK "이 일은 어떤가?~"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<화양귀의 손톱 구해오기>" GO_DOWN 중계3-2
+CASE "<이야기를 그만둔다.>" GO_DOWN 중계끝
+SELECT_END
+
+* 중계3-2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "자네 혹시 화양귀라는 괴물을 알고 있나?"
+@ TALK "그 괴물의 손톱은 한약 약재로서 아주 중요하게"
+@ TALK "쓰여지고 있지."
+@ TALK ""
+@ WAIT
+@ TALK "이번에 한 약재상이 나에게 그 일을 의뢰했네!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "화양귀의 손톱을 구해오면 사례금으로 돈 6000 을"
+@ TALK "주겠네!"
+@ TALK "어떤가? 이 일을 맡을 텐가?"
+@ TALK ""
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<좋습니다! 제가 이 일을 하죠!>" GO_DOWN 중계3-2A
+CASE "<별로 맘에 들지 않는군요.>" GO_DOWN 중계끝
+SELECT_END
+
+* 중계3-2A
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ IF ORDER_SPACE NOTHAVE THEN GO NO_SPACE
+@ TALK "잘 생각했네!"
+@ TALK "자네 정도의 실력이라면 화양귀를 잡는데 커다란"
+@ TALK "어려움은 없을 것 같군."
+@ TALK "비성골에서 화양귀를 잡고 그 손톱을 꼭 가져오게!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "화양귀의 손톱을 구해다 준다면 내 '사제의 방패' 라는"
+@ TALK "최고의 방패를 주겠네!"
+@ TALK "어때? 이정도면 구미가 당기지 않는가?!"
+@ ORDER 55 "화양귀의 손톱 구하기"
+MENT "비성골에서 화양귀를 잡고 그 손톱을 중개인에게"
+MENT "가져다준다."
+MENT "댓가로 최고의 방패를 얻을 수 있다. "
+ORDER_END
+@ GIVE NUM_TO_ALL 104
+@ LOCATE_ENEMY 7 70 25 41 65 231
+@ UNSEAL 7
+/비성골(70, 25)의 화양귀(32) 아이템은 화양귀의 손톱
+@ WAIT
+@ END
+
+* 중계3-2B
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ TALK "자네! 벌써 돌아왔군!"
+@ TALK "화양귀의 손톱은 가져왔겠지?"
+@ TALK "훗.. 미안하군.. 고생하며 돌아온 자네에게"
+@ TALK "다짜고짜 물건부터 요구하다니..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "하지만.. 워낙 그 약재상이 급하게 찾아서 말일세!"
+@ TALK "자! 그럼 화양귀의 손톱을 주게!"
+@ REMOVE ITEM 231
+@ WAIT
+@ TALK "화양귀의 손톱이 틀림없구만!"
+@ TALK "자! 약속대로 사제의 방패를 주겠네."
+@ GIVE ITEM 69 1
+@ REMOVE NUM_TO_ALL 104
+@ REMOVE_ORDER 55
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "좋은 거래였구만!"
+@ TALK "또 찾아달라구!"
+@ CHANGE 34
+@ WAIT
+@ END
+
+/끝
+# 34
+# 9
+# 7
+# "중개인"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 3 "중개인" 113 165 242
+@ COLOR 113 165 242
+@ TALK "흠.. 아직은 일거리가 없구만.."
+@ TALK "다른 마을로 가보는 것은 어떤가?~"
+@ WAIT
+@ END
+
+/====================================================
+/곰바위 마을의 상점 주인과 이야기 하면 생기는 인형 기술자
+# 8
+# 14
+# 1
+# "인형 기술자"
+# FLOW
+# 100
+/인형 기술자
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ IF ITEM HAVE 207 THEN GO_DOWN 인형4-1
+/ 이두마신의 눈과 저울마왕의 귀를 함께 가지고 있다면
+@ IF NUM HAVE 25 THEN GO_DOWN 인형3-1
+/ 2번째 저울 마왕 제거 이벤트를 줄 때 주인공이 다시 물어보면
+@ IF ITEM HAVE 208 THEN GO_DOWN 인형2-1
+/ 이두마신의 눈을 가지고 있다면
+@ IF NUM HAVE 22 THEN GO_DOWN 인형1-3 
+/ 인형 기술자의 제의를 거절하고 다시 물어볼 때
+@ IF NUM HAVE 21 THEN GO_DOWN 인형OK
+@ TALK "당신들은 누구지?"
+@ TALK "왠지 지하세계의 인간인 것 같지는 않군."
+@ TALK "이 마신 성굴에는 무슨 일로 왔나?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "저희는 이 마신 성굴에 잡혀있다는 인형 기술자를"
+@ TALK "찾으러 왔습니다."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "인형 기술자라고?!"
+@ TALK "내가 바로 인형 기술자인데?"
+@ REMOVE_ORDER 7
+@ GIVE NUM_TO_ALL 76
+@ WAIT
+
+@ CLEAR_BUFFER
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ BOX BLUE 5
+@ TALK "당신이 인형 기술자라고요?"
+@ TALK "저희는 지금 레기오스 마족에게 걸린 주술을"
+@ TALK "없애기 위해 주술의 인형을 필요로 하고 있습니다."
+@ TALK "인형을 만들어 주십시오!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "나보고 인형을 만들어 달라고?"
+@ TALK "이 사람.. 만나자마자 다짜고짜 인형이라니..?"
+@ TALK "물론 내가 인형 제작자이긴 하지만.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "난 지금 괴물인 이두마신에게 잡혀있는 상태네."
+@ TALK "이 상태에서 내가 어떻게 인형을 만들겠나."
+@ TALK "이두마신을 없애서 날 자유롭게 해주면"
+@ TALK "내가 인형을 만들어 주겠네"
+@ WAIT
+@ GO_DOWN 인형1-4
+
+* 인형1-4
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "어떤가?"
+@ WAIT
+@ CLEAR_BUFFER
+@ SELECT 255 255 255
+CASE "<승락한다>" GO_DOWN 인형1-1
+CASE "<거절한다>" GO_DOWN 인형1-2
+SELECT_END
+@ END
+
+* 인형1-1
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "잘 생각했네. 물론 조건을 단다는 것이 조금"
+@ TALK "미안하긴 하네만.. 나도 이두마신으로 부터 벗어나고"
+@ TALK "싶어서 그렇다네. 하지만 나를 벗어나게만 해준다면"
+@ TALK "제대로 된 인형을 만들어 주겠네."
+@ TALK "그럼.. 이두마신을 해치운 다음에 다시 이야기하세!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ BOX BLUE 5
+@ TALK "좋아. 그럼... 일단 마신성굴로 가서 이두 마신을"
+@ TALK "해치워야겠군."
+
+@ REMOVE NUM_TO_ALL 22
+@ GIVE NUM_TO_ALL 21
+@ NEW_OBJECT 11 69 18 1 69 9
+/마신성굴에 (69,18)에 아이디 1 에 해골선원(69) 이벤트 9번
+@ NEW_OBJECT 11 35 17 2 65 10
+/마신성굴에 (37,19)에 아이디 2 에 이두마신(65) 이벤트 10번
+@ IF ORDER_SPACE NOTHAVE THEN GO_DOWN NO_SPACE
+@ ORDER 8 "이두마신 퇴치"
+MENT "마신성굴에 살고 있는 이두마신을 없앤다."
+MENT "그리고 그의 눈을 인형 기술자에게 가져다준다."
+ORDER_END
+@ WAIT
+@ END
+
+* 인형1-2
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "뭐.. 자네가 싫다면 어쩔 수 없지."
+@ TALK "이 지겨운 이두마신의 손아귀를 벗어나나 했더니만"
+@ TALK "이번에도 틀렸군."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "하지만 자네도 이것만은 알아두게!"
+@ TALK "이 지하세계에서 주술의 인형을 만들 수 있는"
+@ TALK "사람은 나밖에 없다는 것을 말이야."
+@ WAIT
+@ GIVE NUM_TO_ALL 22
+@ END
+
+* 인형OK
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "뭐하고 있나?"
+@ TALK "주술의 인형을 조금이라도 빨리 얻고 싶다면"
+@ TALK "어서 떠나라구!"
+@ WAIT
+@ END
+
+* 인형1-3
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "흠.. 다시 한번 생각을 해보려나?"
+@ TALK "갈등이 생긴다면 뭐.. 여러 번 생각을 하고 와도"
+@ TALK "상관은 없네."
+@ TALK "하지만 다시 한번 말하지만.. 이 지하세계에는"
+@ TALK "나밖에 인형 기술자가 없네!"
+@ TALK "어떤가? 나의 제의를 받아들일 텐가?"
+@ WAIT
+@ GO_UP 인형1-4 
+@ END
+
+* 인형2-1
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "오.. 자네들 이두 마신을 없애고 왔구만!"
+@ TALK "뭐.. 이미 반쯤 죽어가는 이두 마신을 없애는 것은"
+@ TALK "어렵진 않았겠지?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "어떻게 이두 마신이 상처를 입었던 사실을 아시죠?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "흠..!"
+@ WAIT
+@ TALK "..."
+@ TALK "그 정도쯤이야.. 이 곳을 지나가는 마물이나"
+@ TALK "사람들에게 쉽게 들을 수 있었지!"
+@ TALK "게다가 나는 마물들과 상당히 친하거든.."
+@ WAIT
+@ REMOVE ITEM 208
+@ REMOVE_ORDER 8
+
+@ CLEAR_BUFFER
+@ TALK "좋네! 어쨌든 내 이제 자네를 위해서 주술의 인형을"
+@ TALK "만들어 주겠네!"
+@ TALK ""
+@ TALK "주술의 인형을 만드는 것은 어렵지 않네!"
+@ TALK "하지만 효력을 발휘하기 위해서는 그 주술을 건"
+@ TALK "사람의 목숨이 필요하지."
+@ TALK ""
+@ TALK "극대의 주문을 걸기 위해서는 말일세..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "주술을 건 사람이나 주술을 받은 사람이나.."
+@ TALK "어느쪽이 죽기 전에는 주술은 풀리지 않는다..."
+@ TALK "이것이 바로 극대 주문이지."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "어서 자네는 천귀성으로 가서 저울마왕의 귀를"
+@ TALK "가져오도록 하게. 그러면 내 그것으로 주술의 인형을"
+@ TALK "2개 만들어 주겠네! 그럼 나는 자네가 올 동안"
+@ TALK "공명의 짚단을 구해 놓겠네."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "공명의 짚단이라구요?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "주술의 인형은.. 상대방의 영혼을 함께 연결시키는"
+@ TALK "일종의 매개체일세.. 그렇기 때문에... 당연히"
+@ TALK "함께 공명할 수 있는 매개물이 되어야만 하지."
+@ TALK "공명의 짚단이 바로 그 물질이지."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "아.. 그렇군요... 그렇다면...!"
+@ TALK "그런데 공명의 짚단은 어디서 구하시려구..?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ GIVE NUM_TO_ALL 25
+@ TALK "공명의 짚단은 쉽게 구할 수 있는 것이니.."
+@ TALK "자네가 다녀오는 동안 내가 금방 구해서 오겠네!"
+@ NEW_OBJECT 10 47 41 3 67 11
+@ IF ORDER_SPACE NOTHAVE THEN GO_DOWN NO_SPACE
+@ ORDER 9 "저울 마왕 퇴치"
+MENT "천귀성에 있는 저울 마왕을 퇴치하고 그의 귀를"
+MENT "인형 기술자에게 가져다준다."
+ORDER_END
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "흠.. 천귀성으로 가서 저울마왕을 퇴치하고.."
+@ TALK "그의 귀를 가져오면 되겠군.."
+@ WAIT
+@ END
+
+* 인형3-1
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "어서 다녀오지 않고 뭐하나!"
+@ TALK "너무 늦어버리면 힘들어 진다구!"
+@ TALK ""
+@ TALK "저울 마왕은 머리가 나쁘니 그 점을 이용하게!"
+@ WAIT
+@ END
+
+* 인형4-1
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "드디어 돌아왔구만!"
+@ TALK "난 벌써부터 공명의 짚단을 구해놓고 자네들이"
+@ TALK "돌아오기만을 손꼽아 기다리고 있었네."
+@ TALK "자 그럼 주술의 인형을 만들어야 하니"
+@ TALK "어서 저울마왕의 귀를 주게!"
+@ REMOVE ITEM 207
+@ REMOVE_ORDER 9
+@ WAIT
+@ CLEAR_BUFFER
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ BOX BLUE 5
+@ TALK "어서 주술의 인형을 만들어 주시죠!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK " 저.. 인형 기술자님!"
+@ TALK "어서..."
+@ WAIT
+@ TALK "어서.. 인형을 만들어..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "주술의 인형이라구? 푸훗훗...."
+@ TALK "내가 순순히.. 레기오스 남매의 주술을"
+@ TALK "그런 인물로 보이나...?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "당신... 뭐죠?"
+@ WAIT
+@ TALK "인형 제작자가 맞는거야?!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "뭐야!! 넌 누구지?!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "내가 누구냐고?"
+@ WAIT
+@ TALK "물론.. 난 이 세상에서 유일하게 주술의 인형을"
+@ TALK "만들 수 있는 단 하나의 사람이야."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "왜냐하면 다른 사람들은 내가 모두 없애버렸기"
+@ TALK "때문이지..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "너... "
+@ WAIT
+@ TALK "너는.. 너의 정체는 뭐냐?!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ TALK "나....?"
+@ TALK "난 인형 제작자야. 하지만..."
+@ TALK "다른 이름으로 불리우기도 하지..."
+@ WAIT
+@ TALK "바로 천귀사신..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "네 녀석이 천귀사신?!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 7 "인형 기술자" 250 200 0
+@ COLOR 250 200 0
+@ PLAY MA-1.WAV
+@ TALK "푸하하하.."
+@ WAIT
+@ TALK "그래.. 나의 본 모습을 보여주지!"
+@ WAIT
+@ CHANGE_GOS 64
+&&&&&&&&&&&&&&&&
+/ 천귀사신으로 모습이 바뀜.
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "어떻게.. 이런일이..?"
+@ WAIT
+@ TALK "왜 이런 짓을 한 거지?!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 14 "천귀사신" 131 131 131
+&&&&&&&&&&&&&&7
+/천귀사신의 얼굴로 바뀜
+@ COLOR 131 131 131
+@ TALK "왜... 이런 짓이라니..?"
+@ TALK "그건 나의 힘을 되찾기 위해서야!"
+@ TALK "이... 힘.. 천귀..사신의 힘을 되찾기 위해..."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "힘.. 이라구?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 14 "천귀사신" 131 131 131
+@ COLOR 131 131 131
+@ TALK "통곡의 검과의 대결에서 진 후 봉인되기 전에"
+@ TALK "난 나의 모든 힘을 나의 부하들에게 나누어주었지."
+@ TALK "이 지하세계를 위해.. 또 균등한 세력 분배를 위해서"
+@ TALK "난 거룩하게도! 날! 내 자신을! 희생한거야!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "그랬더니.. 어떻게 된 줄 아나?"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "모두들.. 자신들이 이 지하세계의 왕이 되겠다고"
+@ TALK "설쳐대더군... 푸훗...덕분에 나는 통곡의 검을 얻는데"
+@ TALK "집착 할 수밖에 없었지.. 이 지하세계는 녀석들끼리"
+@ TALK "싸우게 놔두고 말이야."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "너희들 덕분에 난 편안히 통곡의 사검도 얻었는데.."
+@ TALK "결국 이렇게 나의 힘을 되찾는데도 도움을 주는군."
+@ TALK "사실..저울마왕의 귀, 그리고 이 이두마신의 눈은"
+@ TALK "나의 것이거든.."
+@ TALK "내가 나의 것을 되찾아 가는 거야.. 어쩔 수 없겠지?"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "어쨌든.. 내가 통곡의 검을 찾고 또 나의 힘을 완전히"
+@ TALK "되찾는데 도움을 주었으니 너희들을 죽이지는 않겠다."
+@ TALK "다만... 조용히 인간계로 돌아가라."
+@ TALK ""
+@ TALK "어짜피 인간계도 내가 금방 점령을 할거지만.."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "지금! 무슨 소리를 하는거냐!"
+@ TALK "용서하지 않겠다!!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 14 "천귀사신" 131 131 131
+@ COLOR 131 131 131
+@ TALK "하하! 지금 너는 나의 발끝조차 건드릴 수 없어."
+@ TALK "감히.. 마계의 지도자에게... 도전을 하는 건가?"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "어쨌든.. 너희들은 당분간 죽이지 않겠다."
+@ TALK ""
+@ TALK "레기오스 남매 또한.. 별 힘도 쓰지 못하니.."
+@ TALK "신경 쓸 필요가 없군."
+@ TALK "난 이제.. 서서히 인간계를 점령할 준비나 해야겠군."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "다시 말하지만... 어리석은 생각은 버리는 게 좋아."
+@ TALK "난 너희 실력을 다 알고 있어."
+@ TALK "아마 너희 실력으로는 저울마왕이나 이두마신에게도"
+@ TALK "힘들거야... 내가 모두 미리 싸움을 붙여 피해를 주었으니"
+@ TALK "그나마 이렇게 살아올 수 있었던 거지."
+@ WAIT
+@ CLEAR_BUFFER
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ BOX BLUE 5
+@ TALK "뭐... 뭐야?!"
+@ TALK "그렇다면 왜 직접 죽이지 않은거지?!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 14 "천귀사신" 131 131 131
+@ COLOR 131 131 131
+@ TALK "그게 궁금했나?"
+@ TALK "뭐.. 여러가지 이유가 있지. 마계의 율법도.. 그렇고"
+@ TALK "무엇보다.. 난.. 봉인되어서 힘이 부족했거든..."
+@ TALK "어쨌든 거기까지는 자네가 알 필요가 없어."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "말이 길어졌군."
+@ TALK "난.. 이제 나의 힘도 되찾고 모든 것을 이루었으니"
+@ TALK "나의 천귀성으로 되돌아간다."
+@ WAIT
+@ PLAY MA-1.WAV
+@ WAIT
+@ PLAY MASO4.WAV
+@ CHANGE_GOS 19
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "자. 잠깐!!"
+@ WAIT
+@ TALK "젠장..."
+@ WAIT
+@ TALK "도대체 무슨 일을 저지른거냐...?"
+@ TALK "이 일을 어디서 부터 수습을 해야 하는거지?"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "저 녀석은.. 어떤 속셈으로..."
+@ TALK "일단 레기오스 남매에게로 가보는 수밖에.."
+@ TALK "마도사 레기오스님이 알고 있을 거야."
+@ REMOVE_OBJECT 9 11
+@ GIVE NUM_TO_ALL 26
+@ WAIT
+@ REMOVE NUM_TO_ALL 25
+@ REMOVE NUM_TO_ALL 22
+@ REMOVE NUM_TO_ALL 21
+@ REMOVE_OBJECT THIS
+@ END
+
+/--------------------------------------------------------
+/마신 성굴의 입구, 마물들의 시체가 널려 있고
+# 9
+# 11
+# 1
+# "마물 병사"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 19 "마물 병사" 131 131 131 
+@ COLOR 131 131 131
+@ TALK "우욱.. 당신들은? 이 지하세계의 사람이.."
+@ TALK "아닌 것 같군... 케헬!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "그렇소. 우리들은 이 마신 성굴의 이두마신을"
+@ TALK "없애려고 왔소."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 19 "마물 병사" 131 131 131 
+@ COLOR 131 131 131
+@ TALK "케흘.. 이두마신님을 없애러 왔다구?!.."
+@ TALK "그렇다면... 우리는 적이군.."
+@ TALK "적에게... 이런.. 비참한.. 모습을 보여야 한다니.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "누가 이두마신의 세력을 공격한 겁니까?"
+@ TALK "도마룡? 아니면 저울마왕?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 19 "마물 병사" 131 131 131 
+@ COLOR 131 131 131
+@ TALK "모르오. 모두들.. 당연히 저울 마왕이라고 생각들을"
+@ TALK "하겠지만.. 저울 마왕의.. 세력은.. 이렇게 간악한"
+@ TALK "공격을... 하지는.. 않을거요!.. 쿠헉!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "비겁..하게도.. 결계와.. 주술로.."
+@ TALK "분명히.. 저울 마왕과.. 이두마신님을.. 이간질.."
+@ TALK "시키려는.. 계획이오.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "난 이두마신을 죽여야 할지도 모르오!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 19 "마물 병사" 131 131 131 
+@ COLOR 131 131 131
+@ TALK "그건... 당신의 목적이겠지..?"
+@ TALK "아마.. 내가.. 죽어가지 않았다면.. 당신을.."
+@ TALK "공격했을 거요.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "지금 이두마신님도.. 싸움에 지쳐.. 쓰러져 갈 때쯤"
+@ WAIT
+@ TALK "부디.. 당신들이.. 상대한다면.. 추하지.. 않은.."
+@ WAIT
+@ TALK "최후를.. 맞도록.. 부탁.. 하오.."
+@ WAIT
+@ TALK "우.. 욱...!"
+@ WAIT
+@ PLAY FIRE.WAV
+@ CHANGE_GOS 52    
+@ REMOVE_OBJECT THIS
+@ END
+/--------------------------------------------------------
+/ 이두마신이 가운데 서있고 마물들의 시체가 온통 널려있다.
+# 10
+# 11
+# 2
+# "이두 마신"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 15 "이두 마신" 131 131 131
+@ COLOR 131 131 131
+@ TALK "너.. 너희들은.. 누구냐?!"
+@ TALK "어..떻게 인간이 이 마신.. 성굴에 들어왔지?!"
+@ REMOVE_ORDER 8
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "당신이 가두어 놓은 인형 제작자를 데려 가기 위해"
+@ TALK "당신과 싸우러 왔소!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 15 "이두 마신" 131 131 131 
+@ COLOR 131 131 131
+@ TALK "훗. 그.. 인형.. 기술자를... 말하는 건가?"
+@ TALK "데려가도... 상관없다!"
+@ TALK "어짜피.. 이제 적은.. 레기오스.. 남매가.. 아닌"
+@ TALK "천귀사신이.. 될..것... 같으니까."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "어짜피..레기오스 남매는.. 천귀사신을.. 상대할.."
+@ TALK "수 있는 단.. 하나의... 세력. 우리도... 그들을"
+@ TALK "견제하면서... 동시에....보호하고.. 있었던 것이지."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "하지만... 천귀사신이.. 저울마왕과.. 나를 이간질"
+@ TALK "시켜서...이렇게 막대한...피해를 주었으니.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "천귀사신이라구요?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 15 "이두 마신" 131 131 131 
+@ COLOR 131 131 131
+@ TALK "우리들은...천귀사신이.. 봉인 당할 때 그의 능력들을"
+@ TALK "하나씩 나누어 받았지.. 하지만... 그건... 모두"
+@ TALK "천귀사신의... 계략이었지..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "우리들에게... 힘을 나누어... 주어.. 서로 견제하게"
+@ TALK "만들고....나중에...서서히 지하세계와... 인간계를"
+@ TALK "차지하려는....천귀사신의.....속셈이었지."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "우린....내심 알고는... 있었지만.... 서로간의..."
+@ TALK "욕심때문에......알면서도... 당할 수 밖에 없는.. 그런"
+@ TALK "상황이었네."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "그렇다면 레기오스 남매와 힘을 합쳐서"
+@ TALK "천귀사신을 상대하면 되지 않습니까?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 15 "이두 마신" 131 131 131 
+@ COLOR 131 131 131
+@ TALK "이미...우리들사이는 더.. 이상... 나빠질 수 없을"
+@ TALK "정도로...악화... 되었네."
+@ TALK "천귀사신.. 다음으로.. 강력한 세력이었던..."
+@ TALK "레기오스...남매를... 견제..해야..한다는 도마룡의"
+@ TALK "의견으로.....저울 마왕과..... 나는 그... 남매에게"
+@ TALK "주술을... 걸었지....그것도.. 극대의 주문을.."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "극대의 주문이라면..?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 15 "이두 마신" 131 131 131 
+@ COLOR 131 131 131
+@ TALK "극대의... 주문이..... 아니었다면...."
+@ TALK "레기오스... 남매가... 지금까지...저렇게..."
+@ TALK "있었을리가.... 없지... 않은가..?"
+@ TALK "극대의....주문은...주술자의...목숨을 걸고..."
+@ TALK "실행하는...걸세..."
+@ TALK "그래서...그...주문을...풀기 위해서는...단순히..."
+@ TALK "주술의....인형..만으로는...풀리지...않네..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "바로....나의....목숨과... 저울... 마왕의.. 목숨이"
+@ TALK "필요하지...자네들.. 레기오스... 남매의... 주술을"
+@ TALK "풀기.. 위해..이곳에.. 온.. 것이겠지?"
+@ TALK ""
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "그렇다면.. 나의 목숨을 가져가게!"
+@ TALK "어짜피 이렇게 적의 계략에 말려 나의 모든 부하를 잃고"
+@ TALK "이렇게 적들에게 둘러싸인 이상..."
+@ TALK "구차하게 살기를 바라지 않네!"
+@ TALK "당신과 싸우며 명예롭게 죽고 싶네!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "자! 나를 대신해 날 죽여주게!!!"
+@ PLAY D1.WAV
+@ WAIT 
+@ CHANGE_GOS 19
+@ LOCATE_ENEMY 11 35 17 15 60 208
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "자..! 잠깐!!"
+@ WAIT
+@ REMOVE_OBJECT THIS
+@ END
+/--------------------------------------------------------
+* 천귀성
+/천귀성에 도착하면 모든 마물들이 시체로 널려 있다.
+# 11 
+# 10
+# 3
+# "저울마왕"
+# FLOW 
+# 100
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 17 "저울마왕" 131 131 131
+@ COLOR 131 131 131
+@ TALK "나 저울마왕이 이렇게 허무하게 죽을 줄이야!!"
+@ TALK "순간의 영화에 눈이 어두워.."
+@ TALK "나의 평생을 그르치고 말았다!!!"
+@ REMOVE NUM_TO_ALL 25
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "당신은 저울마왕?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 17 "저울마왕" 131 131 131
+@ COLOR 131 131 131
+@ TALK "네녀석은 뭐지?!"
+@ TALK "천귀사신의 첩자인가?!"
+@ WAIT
+@ TALK "아니면 이두마신의 첩자인가?!"
+@ TALK "크아아악!! 모두 죽일테다!!!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "나는 누구의 첩자도 아니요!"
+@ WAIT
+@ TALK "다만.. 난 당신이 레기오스 남매에게 걸어놓은"
+@ TALK "주술을 풀려고 할뿐..."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 17 "저울마왕" 131 131 131
+@ COLOR 131 131 131
+@ TALK "어엇!  후.... 훅...."
+@ TALK "자네는...?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "어떻게 된거죠? 당신은...?"
+@ TALK "방금 전까지... 날뛰더니..?"
+@ WAIT
+@ TALK "난 당신이 레기오스 남매에게 걸어놓은"
+@ TALK "주술을 풀려고..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 17 "저울마왕" 131 131 131
+@ COLOR 131 131 131
+@ TALK "주술이라고..?"
+@ TALK "그래... 그 ... 주술이 문제의 발단이였다!"
+@ TALK "그 주술만 아니었더라도..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "이렇게... 주술에 걸려... 나의 혼을 빼앗기지는"
+@ TALK "않았을텐데..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "난... 지금.. 누군가의 계략에 말려... 주술에 걸렸네."
+@ TALK "나의 혼을 빼앗기는 그런.. 주술..."
+@ TALK "이제.. 얼마 안 있으면.. 난... 더 이상의 이성이"
+@ TALK "존재치 않는... 하나의 괴물이 되고 마네.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "아... 나에게... 통곡의 검을 얻을 수 있는"
+@ TALK "주술만 주어졌더라도...!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "통곡의 검?!"
+@ TALK "그건.. 천귀사신이 얻은 통곡의 사검을 말하는 겁니까?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 17 "저울마왕" 131 131 131
+@ COLOR 131 131 131
+@ TALK "천귀사신이 얻은 통곡의 사검따위는 통곡의 검이라"
+@ TALK "볼 수 없지... 하지만.. 그 검 때문에.. 이제 우리 마계는"
+@ TALK "그의 지배 아래로 들어가게 되었지.."
+@ WAIT
+@ TALK "그.. 그 .. 녀석의 간악한 꾀에.. 우리가 넘어간거야!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "도대체 그게 무슨 소리죠?"
+@ TALK "천귀사신이 어디에 있다구...?"
+@ TALK "그는 모든 힘을 봉인당했다고 하던데..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 17 "저울마왕" 131 131 131
+@ COLOR 131 131 131
+@ TALK "모든 힘을 봉인 당했었지.. 그래서 이두마신과 나는"
+@ TALK "천귀사신이 없는 지하세계를 구축했다네.."
+@ TALK "하지만.. 천귀사신이 간악한 꾀로.. 이두마신과 나를"
+@ TALK "레기오스 남매를 주술로 봉인시키게 하고.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "또한 그 때문에...  우리는 이 마계에서 매장당하게"
+@ TALK "되었지.."
+@ WAIT
+@ TALK "이제.. 통곡의 사검을 얻은 천귀사신에게 대적할 자는"
+@ TALK "이.. 마계에는... 아니.. 이 세계에는 없네.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "으아아아아아악!!!!!"
+@ TALK "통곡의 검을 눈앞에 두고도 얻지 못하는 이.. 안타까움을.."
+@ TALK "어찌한단 말인가..?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "통곡의 검이.. 눈앞에 있다니..?"
+@ TALK "그게 무슨 소리죠?!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 17 "저울마왕" 131 131 131
+@ COLOR 131 131 131
+@ TALK "내.. 옆에 보이는 저.. 봉인된 검이 보이나?"
+@ NEW_OBJECT 10 41 41 8 41 45
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "저... 저건...!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 17 "저울마왕" 131 131 131
+@ COLOR 131 131 131
+@ TALK "우욱..."
+@ TALK "바로...  저것이.. "
+@ TALK "누구도 모르지만.. 진정한 통곡의 검의 원본이지."
+@ TALK "천귀사신이 가지고 있는 통곡의 검은 저 검이 부러지면서"
+@ TALK "생겨난 조각의 형상일 뿐이네..."
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "그렇다면.. 어째서 저 검을 가지지 않는 겁니까?"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 17 "저울마왕" 131 131 131
+@ COLOR 131 131 131
+@ TALK "내.. 어찌 저것을 가지려 하지 않았겠나?"
+@ TALK "하지만.. 저 검은 이미.. 완전히 봉인되어 버려서.."
+@ TALK "절대로 그 봉인을 풀 수가 없다네..."
+@ TALK "그 때문에.. 천귀사신도.. 통곡의 검의 사검을 얻은거지."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "이제.. 난 곧있으면.. 나의 영혼을 잃게 되네..."
+@ TALK "자네... 나의 귀를 가지고 가서.. 레기오스 남매의"
+@ TALK "주술을 풀어주게..."
+@ TALK "그게.. 나의 마지막 최선일.. 것......"
+@ WAIT
+@ PLAY D3.WAV
+@ TALK "으아아아아!!!~~ "
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "누구라도 좋다.. 모조리 없애주마!!!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "아... 저울마왕의 혼이.. 소멸된 것 같군!"
+@ TALK "어떻게 이런 일이..."
+@ TALK "도대체.. 어떻게 일이 돌아가는 건지 모르겠군!!"
+@ TALK "일단.. 레기오스 남매를 위해 저울 마왕을"
+@ TALK "퇴치하는 수밖에..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "또.. 저울마왕도 그것을 원했던 것 같으니..!"
+@ CHANGE_GOS 19
+@ LOCATE_ENEMY 10 47 41 18 80 207
+@ WAIT
+@ REMOVE_OBJECT THIS
+/-------------------------------------------------------
+# 45 
+# 10
+# 8
+# "통곡의 진검"
+# FLOW 
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ IF NUM HAVE 111 THEN GO_DOWN 진검2
+@ IF NUM HAVE 110 THEN GO_DOWN 진검1
+@ TALK "이.... 이 것은 뭐지..?!"
+@ WAIT
+@ TALK "통곡의 검인가..?"
+@ WAIT
+@ TALK "이 검을 얻으려면.. 주술이 필요하다고 했나..?"
+@ TALK "이 봉인을 풀 수 있는 방법은 뭐지...?"
+@ TALK "마도사 레기오스에게 가서 물어봐야 겠다."
+@ GIVE NUM_TO_ALL 71
+@ WAIT
+@ END
+
+* 진검1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "좋아.. 이제.. 통곡의 검을 얻을 때가 왔군..!"
+@ TALK "주문을 외워볼까...?"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "통곡의 검은 그 주인을 원하니... 그 주인은 처절한"
+@ TALK "원한과 슬픔을 알고 있는 자여야만 한다."
+@ TALK "나.. 이제 그 어둠을 알고 있으니.. 통곡의 검은 주인의"
+@ TALK "손으로 그의 슬픔을 함께 할지어다!".
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "어! 이건 뭐지!! 통곡의 검의 검마인가?!"
+@ GIVE NUM_TO_ALL 111
+@ WAIT
+@ LOCATE_ENEMY 10 47 48 42 56 0
+@ LOCATE_ENEMY 10 51 49 42 50 0
+@ LOCATE_ENEMY 10 100 112 42 56 0
+@ LOCATE_ENEMY 10 45 53 42 60 0
+@ LOCATE_ENEMY 10 49 55 42 47 0
+@ LOCATE_ENEMY 10 45 47 42 53 0
+@ WARP 10 48 49
+@ END
+
+* 진검2
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "이것은...?"
+@ WAIT
+@ CHANGE_GOS 43 
+@ GIVE ITEM 33 1
+@ TALK "통곡의 검이다!!1"
+@ TALK "드디어.. 통곡의 검을 얻게 되다니...!!!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "이제!! 통곡의 검을 얻었으니!"
+@ TALK "천귀 사신과... 상대를 하러 가야겠다!"
+@ TALK "흠.. 그런데.. 천귀 사신이 있는 곳은..?"
+@ TALK "마도사 레기오스님이 알고 계실지도 모르겠군.."
+@ TALK "먼저 천사왕굴의 레기오스님에게로 가자.."
+@ WAIT
+@ REMOVE_OBJECT THIS
+@ END
+
+/--------------------------------------------------------
+# 12
+# 18
+# 1
+# "마도사 레기오스"
+# FLOW
+# 100
+@ IF NUM HAVE 72 THEN GO_DOWN 수정열쇠
+@ IF ITEM HAVE 33 THEN GO_DOWN 마지막전투
+@ IF NUM HAVE 110 THEN GO_DOWN 천귀성다시
+@ IF NUM HAVE 27 THEN GO_DOWN 천귀성-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "휴..."
+@ WAIT
+@ TALK "지금.. 자네는.. 여기서.. 무엇을.. 하는 건가?"
+@ TALK "천귀사신이 언제... 또 올지 모르는데.."
+@ WAIT
+@ CLEAR_BUFFER
+@ IF NUM HAVE 71 THEN GO_DOWN 통곡1
+@ END
+
+* 수정열쇠
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "왜 또왔나..."
+@ TALK "이제 자네는 천귀사신을 죽일 수 있을 거야."
+@ TALK "내가 준 수정열쇠를 가지고 천귀성 남쪽으로 가보면"
+@ TALK "비륵굴로 가는 통로가 있을 거야. 그 곳에 천귀사신이"
+@ TALK "있어. 부디 조심하게."
+@ WAIT
+@ END
+
+* 천귀성-1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ REMOVE NUM_TO_ALL 27
+@ TALK "레기오스님!"
+@ WAIT
+@ TALK "이게 어떻게 된 거죠?!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "젠장.. 어린 녀석들에게.."
+@ TALK "이... 이런 약한 모습을.. 보여야만 하다니.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "지금 천귀사신에게 당하고 오는 길일세...."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "너희는... 어째서 인간계로... 돌아가지 않은 거냐?"
+@ TALK "어차피.. 죽을 목숨이지만... 조금의 생명은 늘릴 수"
+@ TALK "있었을 텐데.."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "천귀 사신은... 어디에.... 있죠?!"
+@ WAIT
+@ TALK "레디나님은....?!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "레디나는 ...나보다 먼저.. 천귀사신에게 당했어..."
+@ TALK "우리의... 어쩔 수 없는 최후의... 선택이었네..."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "나도.. 겉으로는 괜찮아 보이지만.. 마법으로 인한"
+@ TALK "내상으로 이제는... 틀렸네..."
+@ TALK "이곳에서.. 조용히 체력을 회복하는 수밖에..."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "어떻게?!"
+@ WAIT
+@ TALK "어떻게 해야! 어떻게 해야! 천귀사신을 없앨 수 있죠?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "그만.. 모든 걸 잊어버리게..."
+@ TALK "그동안.. 우리를 위해..애..써준 것.. 고맙네.."
+@ TALK "욱...."
+@ WAIT
+@ TALK "하지만.. 포기하게.."
+@ TALK "통곡의 사검이 천귀사신에게 있는 이상.. 우리에게는"
+@ TALK "통곡의 진검이 아니면.. 절대로 이길 수 없네...."
+@ WAIT
+@ TALK "이.. 이길 수 없어..."
+@ TALK "돌아가게..."
+@ WAIT
+@ REMOVE NUM_TO_ALL 27
+@ END
+
+* 통곡1
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ IF ITEM NOTHAVE 220 THEN GO_DOWN 검마주술
+@ TALK "아니!!!! 지금.. 자네가 가지고 있는 검은..?"
+@ TALK "그검은 바로 통곡의 검의 증명이 아닌가?!"
+@ TALK "난 과거.. 통곡의 검을 가진 무사와 천귀사신이 싸우는"
+@ TALK "장면을 보았었네!!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "지금 천귀사신이 가지고 있는 검은 통곡의 사검 일 뿐이야"
+@ TALK "자네가 가지고 있는 이.. 낡은 검이 사실은 통곡의 검의"
+@ TALK "증명이지.."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "아.. 하늘은 아직.. 우리를 버리지 않으시는군.."
+@ WAIT
+* 검마주술
+@ CLEAR_BUFFER
+@ TALK "내가.. 통곡의 진검을 얻을 수 있는 주문을 가르쳐 주지!"
+@ TALK "천귀성으로 가서.. 자네가 가지고 있는 증명과"
+@ TALK "주문을 함께 외우면.... 통곡의 진검을 얻을 수 있을거네!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "통곡의 검은 그 주인을 원하니... 그 주인은 처절한"
+@ TALK "원한과 슬픔을 알고 있는 자여야만 한다."
+@ TALK "나.. 이제 그 어둠을 알고 있으니.. 통곡의 검은 주인의"
+@ TALK "손으로 그의 슬픔을 함께 할지어다!"
+@ GIVE NUM_TO_ALL 110
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "자.. 이제.. 떠나게.."
+@ TALK "자네가.. 우리 마계와.. 인간계를 책임지는 무거운 사명을"
+@ TALK "짊어지게 되었군.."
+@ WAIT
+@ TALK "부디... 잘... 부탁하네..!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "알겠습니다!"
+@ TALK "이제.. 천귀성으로 가서.. 통곡의 검을 얻어.."
+@ TALK "천귀사신을 없애겠습니다..."
+@ WAIT
+@ END
+
+* 천귀성다시
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "자네에게.. 어려운 짐을 지운 것 같아 미안하구만..."
+@ TALK "이 도움도 못 되는 늙은이를 용서하게.."
+@ TALK "이제 그 통곡의 칼에 대한 주술이 풀렸으니,"
+@ TALK "어서 가서 통곡의 검을 차지하게. "
+@ WAIT
+@ TALK "천귀사신에게 회복할 시간을 주게되면 전쟁은"
+@ TALK "더욱 더 힘들어져..."
+@ WAIT
+@ END
+
+* 마지막전투
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "자네!! 돌아와 주었군!!"
+@ TALK "어떻게.. 통곡의 검은?!!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "네.. 운좋게도..!!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "다행이로군!!!!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "하지만.. 천귀사신은 천귀성에 없더군요..."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE 11 "마도사 레기오스" 160 160 200
+@ COLOR 160 160 200
+@ TALK "천귀사신은.. 지금쯤 승리감에 도취되어.."
+@ TALK "자신의 비밀 지역에 있을걸세.."
+@ TALK "천귀 사신은 조심성이 많아.."
+@ TALK "아무도 모르는 지역에서 혼자 살고 있지!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "하지만.. 난 그 지역을 알고 있네!"
+@ TALK "자네는 통곡의 검을 얻었으니.."
+@ TALK "천귀성 남쪽에 비밀 통로가 있어."
+@ TALK "내가 남은 마력을 모두 모아 그 통로를 열 수 있는 열쇠를.."
+@ TALK "만들어주지."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "고맙습니다!!"
+@ GIVE ITEM 241 1
+@ WAIT
+@ GIVE NUM_TO_ALL 72
+@ NEW_OBJECT 19 46 46 1 64 44
+/천귀사신을 생성시킨다.
+@ END
+
+
+
+80 : 수정 열쇠를 확인하고 석상을 없앰.
+# 80
+# 10
+# 21
+# "마신석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX RED 5
+@ COLOR 255 60 60
+@ IF ITEM HAVE 241 THEN GO_DOWN SUC1
+@ TALK "천귀사신의 명을 받아 이 성역을 지킨다."
+@ WAIT
+@ LOCATE_ENEMY CURMAP 27 79 37 60 0
+@ LOCATE_ENEMY CURMAP 28 79 37 60 0
+@ LOCATE_ENEMY CURMAP 29 79 37 60 0
+@ LOCATE_ENEMY CURMAP 30 79 37 60 0
+@ LOCATE_ENEMY CURMAP 31 79 37 60 0
+@ END
+* SUC1
+@ TALK "그대는 선택받은 자이니 길을 열어주노라."
+@ WAIT
+@ REMOVE_OBJECT CURMAP 41 
+@ REMOVE_OBJECT CURMAP 42
+@ REMOVE_OBJECT THIS
+@ END
+
+81 : 수정 열쇠를 확인하고 석상을 없앰.
+# 81
+# 10
+# 22
+# "마신석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX RED 5
+@ COLOR 255 60 60
+@ IF ITEM HAVE 241 THEN GO_DOWN SUC1
+@ TALK "천귀사신의 명을 받아 이 성역을 지킨다."
+@ WAIT
+@ LOCATE_ENEMY CURMAP 67 77 38 60 0
+@ LOCATE_ENEMY CURMAP 68 77 38 60 0
+@ LOCATE_ENEMY CURMAP 69 77 38 60 0
+@ LOCATE_ENEMY CURMAP 66 77 38 60 0
+@ LOCATE_ENEMY CURMAP 65 77 38 60 0
+@ END
+* SUC1
+@ TALK "그대는 선택받은 자이니 길을 열어주노라."
+@ WAIT
+@ REMOVE_OBJECT CURMAP 43 
+@ REMOVE_OBJECT CURMAP 44
+@ REMOVE_OBJECT THIS
+@ END
+
+82 : 천귀성 입구. 들어갈 때 돈을 받고.
+# 82
+# 7
+# 10
+# "천귀성 입구"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "이 안이 천귀성인데... 문이 잠겨있군."
+@ TALK "어떻게 하지?"
+@ WAIT
+@ CLEAR_BUFFER
+@ FACE 4 "문지기" 160 160 200
+@ COLOR 160 160 200
+@ TALK "이봐요.  쉿!"
+@ TALK "조용히 해요. 돈을 주면 내가 안으로 들려보내 줄께요."
+@ TALK "한 번 들어가는데 500동이오. 어떻게 하겠오?"
+@ WAIT
+@ CLEAR_BUFFER
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ SELECT 255 255 255
+CASE "<승락한다>" GO_DOWN OK1
+CASE "<거절한다>" GO_DOWN END
+SELECT_END
+* OK1
+@ IF MONEY LE 499 THEN GO_DOWN NO1
+@ CLEAR_BUFFER
+@ FACE 4 "문지기" 160 160 200
+@ COLOR 160 160 200
+@ TALK "좋소. 그럼 안으로 들여보내주지."
+@ TALK "조심 하시오. 그리고 나오는 길은 천귀성의 북동쪽에 있소."
+@ WAIT
+@ REMOVE MONEY 500
+@ WARP 10 1 17
+@ END
+* NO1
+@ CLEAR_BUFFER
+@ FACE 4 "문지기" 160 160 200
+@ COLOR 160 160 200
+@ TALK "뭐야! 돈도 없으면서. "
+@ TALK "그럼 난 들키기 전에 가야하니, 돈을 가지고 오면"
+@ TALK "다시 부르시오."
+@ WAIT
+@ END
+
+
+
+
+
+
+/-------------------------------------------------
+# 44
+# 19
+# 1
+# "천귀사신"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 14 "천귀사신" 131 131 131
+@ COLOR 131 131 131
+@ TALK "네 녀석은..?!"
+@ TALK "인간 따위가 나의 영역에 들어오다니.. 죽고 싶은거냐?!"
+@ TALK "어떻게 이곳에 들어온거지?!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "천귀사신!!"
+@ TALK "너를 없애기 위해 왔다!"
+@ WAIT
+@ CLEAR_BUFFER
+@ PLAY MA-1.WAV
+@ TALK "훗.. 어리석은 인간..."
+@ TALK "네가 통곡의 사검을 가진 나를 설마 이길 수 있다고"
+@ TALK "생각하는 건 아니겠지?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ CLEAR_BUFFER
+@ FACE HERO 31 164 235
+@ COLOR 31 164 235
+@ BOX BLUE 5
+@ TALK "통곡의 검...! 그 검은 너에게 허락될 그런 물건이"
+@ TALK "아니다!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 14 "천귀사신" 131 131 131
+@ COLOR 131 131 131
+@ PLAY MA-1.WAV
+@ TALK "우습군... 하지만 난 통곡의 검을 이미 차지했다."
+@ TALK "그것도.. 아주 예전에..."
+@ TALK "너희들이 세계를 헤메일 때..."
+@ TALK "나의 부하들에 의해 내가 위협 받을 때..."
+@ WAIT
+@ CLEAR_BUFER
+@ TALK "난... 떨어진 나의 명예와 복수를 위해..."
+@ TALK "통곡의 검을 찾아냈지.... 그리고 그 검은..."
+@ TALK "지금 나의 손안에 있다."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "어떻게... 어떻게 네가...."
+@ TALK "통곡의... 검을 사용할 수 있는..거지?"
+@ WAIT
+@ TALK "통곡의.. 검은.. 슬픔과 고통을 아는 인간만이.."
+@ TALK "사용할.. 수 있는 것인데...?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 14 "천귀사신" 131 131 131
+@ COLOR 131 131 131
+@ TALK "슬픔과 고통이라구?!"
+@ TALK "지금.. 슬픔과 고통에 대해서 이야기 한건가?"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "너따위 하찮은 인간이 슬픔과 고통에 대해"
+@ TALK "이야기할 가치조차 있다고 생각하는가?!"
+@ WAIT
+@ TALK "너 따위가 내가 겪은 슬픔과 고통을 아는가?!"
+@ WAIT
+
+@ CLEAR_BUFFER
+@ TALK "하찮은 인간 따위와 이야기하고 싶지 않다!"
+@ TALK "죽어랏!!!"
+
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 14 "천귀사신" 131 131 131
+@ COLOR 131 131 131
+@ TALK "이건.. 뭐..뭐냐?!!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "어떻게 이런일이...?"
+@ WAIT
+@ TALK "네...네.... 녀석.. 어떻..게.. 통곡의.. 검을 가지고 있지?"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "천귀사신..."
+@ TALK "이제 너의 악행이 하늘에 닿았으니.. 그 심판을"
+@ TALK "받을 때가 도래한 것이다!"
+@ WAIT
+@ TALK "그리고 하늘은 통곡의 검으로 심판을 허락하셨다."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 14 "천귀사신" 131 131 131
+@ COLOR 131 131 131
+@ TALK "뭐. 뭐라고?!"
+@ TALK "네 녀석은..?!!!"
+@ WAIT
+@ TALK "나에겐 통곡의 사검이 있다!!"
+@ TALK "아무리 통곡의 검이라해도! 날 이길 순 없을걸!!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "통곡의 검의 사검으로는 절대 진검을 이길 수 없다."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 14 "천귀사신" 131 131 131
+@ COLOR 131 131 131
+@ TALK "진검이라니?!  통곡의 검의 진검은 사라진지"
+@ TALK "오래......다!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "믿.. 믿을 수 없다...! 믿을 수 없어!!"
+@ TALK "다.. 없애 주겠다!!"
+@ CHANGE_GOS 19 
+@ WAIT
+@ PLAY D5.WAV
+@ LOCATE_ENEMY 19 66 48 44 250 33
+@ LOCATE_ENEMY 19 50 44 37 80 0
+@ PLAY A3.WAV
+@ LOCATE_ENEMY 19 51 44 37 80 0
+@ LOCATE_ENEMY 19 52 44 37 80 0
+@ PLAY C3.WAV
+@ LOCATE_ENEMY 19 54 52 38 85 0
+@ LOCATE_ENEMY 19 55 53 38 70 0
+@ LOCATE_ENEMY 19 56 54 38 60 0
+@ PLAY E5.WAV
+@ LOCATE_ENEMY 19 61 48 42 40 0
+@ LOCATE_ENEMY 19 61 50 42 42 0
+@ PLAY A3.WAV
+@ LOCATE_ENEMY 19 42 45 41 40 0
+@ PLAY B3.WAV
+@ LOCATE_ENEMY 19 42 50 41 40 0
+@ UNSEAL 1
+@ UNSEAL 2
+@ UNSEAL 3
+@ UNSEAL 4
+@ UNSEAL 5
+@ UNSEAL 6
+@ UNSEAL 7
+@ UNSEAL 8
+@ UNSEAL 9
+@ UNSEAL 10
+@ UNSEAL 11
+@ UNSEAL 12
+@ UNSEAL 13
+@ UNSEAL 14
+@ UNSEAL 15
+@ UNSEAL 16
+@ UNSEAL 17
+@ UNSEAL 18
+@ REMOVE_OBJECT THIS
+@ END
+
+
+# 35
+# 10
+# 5
+# "천귀사신"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 14 "천귀사신" 131 131 131
+@ COLOR 131 131 131
+@ TALK "용사여!..."
+@ TALK "신의 이름을 받은 자여.."
+@ TALK "우리를... 우리 어둠을.. 더 이상 방해하지 말아다오!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "당신들의 끝없는 욕망은 파멸만을 자초할 따름이오."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 14 "천귀사신" 131 131 131
+@ COLOR 131 131 131
+@ TALK "신의 논리에 우리는 평생을 죽음보다 더한 고통"
+@ TALK "속에 살아왔다. 헉!.. 이정도면 충분하지 않은가?!"
+@ TALK ""
+@ TALK "시..신에게 버림..받은.. 우리 마족들에겐!"
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 250 250 0
+@ COLOR 250 250 0
+@ TALK "천귀사신이여! 그대의 뛰어난 능력으로 마족들의"
+@ TALK "새로운 삶을 열고자 하는 것은 당연하오."
+@ TALK "하지만... 하나의 강자가 생겼다고 해서 약자를"
+@ TALK "억누를 권리가 생기는 것이 아니지 않소!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "그리고 천행의 순리는 그대들에게 그 삶을 허락한"
+@ TALK "것일뿐이오."
+@ WAIT
+@ CLEAR_BUFFER
+@ BOX RED 5
+@ FACE 14 "천귀사신" 131 131 131
+@ COLOR 131 131 131
+@ TALK "커헉!"
+@ WAIT
+@ TALK "그따위 말도 안되는 소리는 집어치우란 말이다!!!"
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "집어치워!!!"
+@ TALK "하하하.."
+@ PLAY FIRE.WAV
+@ WAIT
+@ GO_END2
+@ END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+============================================================
+  건물 명령
+============================================================
+* MAGIC_STOP
+@ CLEAR_BUFFER
+@ BOX BLUE 4
+@ FACE 6 "마법소 마녀" 240 20 190
+@ COLOR 240 20 190
+@ FACE 6 "마법소 마녀" 240 20 190
+@ TALK "왜? 마법 수련을 포기하려고?"
+@ TALK "  "
+@ COLOR 250 250 0
+@ SELECT 250 250 250
+CASE "포기한다." CANCEL_MAGIC
+CASE "계속한다." GO_DOWN 끝
+SELECT_END
+@ END
+
+* 마법훈련1
+@ BOX BLUE 7
+@ FACE 6 "마법소 마녀" 240 20 190
+@ COLOR 240 20 190
+@ CLEAR_BUFFER
+@ LEARN_MAGIC "어떤 마법을 배워보겠나?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 1
+LIST 2
+LIST 3
+LIST 4
+LIST 5
+LIST 6
+LIST 7
+LIST 8
+LIST 10
+LIST 11
+LIST 12
+LEARN_MAGIC_END
+@ END
+
+* 마법훈련2
+@ BOX BLUE 7
+@ FACE 6 "마법소 마녀" 240 20 190
+@ COLOR 240 20 190
+@ CLEAR_BUFFER
+@ LEARN_MAGIC "어떤 마법을 배워보겠나?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 2
+LIST 3
+LIST 4
+LIST 5
+LIST 7
+LIST 9
+LIST 10
+LIST 11
+LIST 12
+LEARN_MAGIC_END
+@ END
+
+* 장비고르기1
+@ IF LEVEL GE 48 && STRENGTH GE 85 THEN GO_DOWN 장비사기22
+@ IF LEVEL GE 44 && STRENGTH GE 80 THEN GO_DOWN 장비사기21
+@ IF LEVEL GE 40 && STRENGTH GE 74 THEN GO_DOWN 장비사기20
+@ IF LEVEL GE 36 && STRENGTH GE 65 THEN GO_DOWN 장비사기10
+@ IF LEVEL GE 32 && STRENGTH GE 59 THEN GO_DOWN 장비사기9
+@ IF LEVEL GE 28 && STRENGTH GE 53 THEN GO_DOWN 장비사기8
+@ IF LEVEL GE 24 && STRENGTH GE 48 THEN GO_DOWN 장비사기7
+@ IF LEVEL GE 19 && STRENGTH GE 44 THEN GO_DOWN 장비사기6
+@ IF LEVEL GE 15 && STRENGTH GE 40 THEN GO_DOWN 장비사기5
+@ IF LEVEL GE 11 && STRENGTH GE 36 THEN GO_DOWN 장비사기4
+@ IF LEVEL GE 7 && STRENGTH GE 28 THEN GO_DOWN 장비사기3
+@ IF LEVEL GE 3 && STRENGTH GE 22 THEN GO_DOWN 장비사기2
+@ GO_DOWN 장비사기1
+
+* 장비고르기2
+@ IF LEVEL GE 45 && SKILL GE 62 THEN GO_DOWN 장비사기23
+@ IF LEVEL GE 34 && SKILL GE 52 THEN GO_DOWN 장비사기16
+@ IF LEVEL GE 25 && STRENGTH GE 50 THEN GO_DOWN 장비사기15
+@ IF LEVEL GE 16 && HEALTH GE 40 THEN GO_DOWN 장비사기14
+@ IF LEVEL GE 11 && DEXTERITY GE 32 THEN GO_DOWN 장비사기13
+@ IF LEVEL GE 5 && STRENGTH GE 27 THEN GO_DOWN 장비사기12
+@ GO_DOWN 장비사기11
+
+* 장비사기1
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 1
+LIST 2
+LIST 3
+LIST 4
+LIST 41
+LIST 42
+LIST 43
+LIST 61
+LIST 62
+LIST 71
+LIST 72
+LIST 81
+LIST 82
+LIST 101
+LIST 111
+LIST 112
+LIST 131
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기2
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 2
+LIST 3
+LIST 4
+LIST 5
+LIST 6
+LIST 42
+LIST 43
+LIST 44
+LIST 61
+LIST 62
+LIST 71
+LIST 72
+LIST 81
+LIST 82
+LIST 83
+LIST 101
+LIST 111
+LIST 131
+LIST 138
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기3
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 3
+LIST 5
+LIST 6
+LIST 7
+LIST 8
+LIST 42
+LIST 43
+LIST 44
+LIST 45
+LIST 62
+LIST 63
+LIST 71
+LIST 72
+LIST 73
+LIST 82
+LIST 83
+LIST 84
+LIST 101
+LIST 102
+LIST 113
+LIST 117
+LIST 136
+LIST 137
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기4
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 3
+LIST 5
+LIST 6
+LIST 7
+LIST 8
+LIST 9
+LIST 42
+LIST 44
+LIST 45
+LIST 46
+LIST 62
+LIST 63
+LIST 71
+LIST 72
+LIST 73
+LIST 82
+LIST 83
+LIST 84
+LIST 85
+LIST 101
+LIST 102
+LIST 103
+LIST 111
+LIST 118
+LIST 138
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기5
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 4
+LIST 7
+LIST 8
+LIST 9
+LIST 10
+LIST 11
+LIST 42
+LIST 44
+LIST 45
+LIST 46
+LIST 47
+LIST 62
+LIST 63
+LIST 64
+LIST 72
+LIST 73
+LIST 74
+LIST 82
+LIST 83
+LIST 84
+LIST 85
+LIST 102
+LIST 103
+LIST 104
+LIST 112
+LIST 114
+LIST 123
+LIST 137
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기6
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 3
+LIST 5
+LIST 7
+LIST 8
+LIST 9
+LIST 11
+LIST 12
+LIST 13
+LIST 43
+LIST 44
+LIST 46
+LIST 47
+LIST 48
+LIST 62
+LIST 63
+LIST 64
+LIST 72
+LIST 73
+LIST 74
+LIST 83
+LIST 84
+LIST 85
+LIST 86
+LIST 102
+LIST 103
+LIST 104
+LIST 111
+LIST 114
+LIST 116
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기7
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 5
+LIST 7
+LIST 8
+LIST 10
+LIST 11
+LIST 13
+LIST 14
+LIST 15
+LIST 43
+LIST 45
+LIST 46
+LIST 48
+LIST 49
+LIST 62
+LIST 64
+LIST 65
+LIST 72
+LIST 73
+LIST 74
+LIST 82
+LIST 84
+LIST 85
+LIST 86
+LIST 87
+LIST 102
+LIST 103
+LIST 104
+LIST 105
+LIST 114
+LIST 132
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기8
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 3
+LIST 5
+LIST 9
+LIST 10
+LIST 11
+LIST 12
+LIST 14
+LIST 15
+LIST 16
+LIST 44
+LIST 45
+LIST 47
+LIST 48
+LIST 49
+LIST 50
+LIST 62
+LIST 63
+LIST 64
+LIST 65
+LIST 72
+LIST 74
+LIST 75
+LIST 82
+LIST 84
+LIST 86
+LIST 87
+LIST 102
+LIST 104
+LIST 105
+LIST 106
+LIST 112
+LIST 117
+LIST 131
+LIST 135
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기9
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 5
+LIST 9
+LIST 10
+LIST 12
+LIST 13
+LIST 14
+LIST 16
+LIST 17
+LIST 18
+LIST 44
+LIST 45
+LIST 47
+LIST 48
+LIST 49
+LIST 50
+LIST 51
+LIST 63
+LIST 64
+LIST 65
+LIST 66
+LIST 72
+LIST 73
+LIST 74
+LIST 75
+LIST 84
+LIST 86
+LIST 87
+LIST 88
+LIST 103
+LIST 104
+LIST 105
+LIST 106
+LIST 115
+LIST 116
+LIST 117
+LIST 123
+LIST 139
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기10
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 9
+LIST 11
+LIST 12
+LIST 15
+LIST 16
+LIST 18
+LIST 19
+LIST 20
+LIST 44
+LIST 46
+LIST 48
+LIST 50
+LIST 51
+LIST 63
+LIST 65
+LIST 66
+LIST 73
+LIST 74
+LIST 75
+LIST 84
+LIST 86
+LIST 87
+LIST 88
+LIST 104
+LIST 105
+LIST 106
+LIST 107
+LIST 113
+LIST 118
+LIST 133
+LIST 137
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기11
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 5
+LIST 7
+LIST 43
+LIST 44
+LIST 62
+LIST 72
+LIST 83
+LIST 101
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기12
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 6
+LIST 8
+LIST 9
+LIST 44
+LIST 46
+LIST 64
+LIST 71
+LIST 84
+LIST 104
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기13
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 7
+LIST 10
+LIST 12
+LIST 45
+LIST 47
+LIST 63
+LIST 65
+LIST 74
+LIST 84
+LIST 86
+LIST 105
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기14
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 10
+LIST 13
+LIST 15
+LIST 16
+LIST 46
+LIST 48
+LIST 49
+LIST 66
+LIST 75
+LIST 87
+LIST 106
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기15
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 26
+LIST 18
+LIST 19
+LIST 52
+LIST 53
+LIST 51
+LIST 68
+LIST 66
+LIST 75
+LIST 88
+LIST 107
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기16
+@ FACE HERO 250 220 0
+@ BOX BLUE 7
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 25
+LIST 17
+LIST 20
+LIST 31
+LIST 44
+LIST 46
+LIST 48
+LIST 51
+LIST 54
+LIST 66
+LIST 68
+LIST 75
+LIST 76
+LIST 87
+LIST 89
+LIST 109
+LIST 107
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기20
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 11
+LIST 15
+LIST 16
+LIST 18
+LIST 19
+LIST 20
+LIST 21
+LIST 22
+LIST 24
+LIST 44
+LIST 46
+LIST 48
+LIST 50
+LIST 51
+LIST 52
+LIST 63
+LIST 65
+LIST 66
+LIST 67
+LIST 73
+LIST 74
+LIST 75
+LIST 76
+LIST 84
+LIST 86
+LIST 87
+LIST 88
+LIST 89
+LIST 104
+LIST 105
+LIST 106
+LIST 107
+LIST 108
+LIST 113
+LIST 118
+LIST 133
+LIST 137
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기21
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 15
+LIST 16
+LIST 18
+LIST 19
+LIST 20
+LIST 21
+LIST 22
+LIST 24
+LIST 23
+LIST 25
+LIST 26
+LIST 27
+LIST 44
+LIST 46
+LIST 48
+LIST 50
+LIST 51
+LIST 52
+LIST 54
+LIST 55
+LIST 63
+LIST 65
+LIST 66
+LIST 67
+LIST 68
+LIST 73
+LIST 74
+LIST 75
+LIST 76
+LIST 77
+LIST 84
+LIST 86
+LIST 87
+LIST 88
+LIST 89
+LIST 90
+LIST 104
+LIST 105
+LIST 106
+LIST 107
+LIST 108
+LIST 109
+LIST 114
+LIST 117
+LIST 135
+LIST 138
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기22
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 18
+LIST 20
+LIST 21
+LIST 24
+LIST 23
+LIST 25
+LIST 26
+LIST 27
+LIST 29
+LIST 30
+LIST 31
+LIST 44
+LIST 46
+LIST 48
+LIST 50
+LIST 51
+LIST 52
+LIST 54
+LIST 55
+LIST 56
+LIST 65
+LIST 66
+LIST 67
+LIST 68
+LIST 69
+LIST 74
+LIST 75
+LIST 76
+LIST 77
+LIST 86
+LIST 87
+LIST 88
+LIST 89
+LIST 90
+LIST 91
+LIST 105
+LIST 106
+LIST 107
+LIST 108
+LIST 109
+LIST 110
+LIST 116
+LIST 124
+LIST 140
+LIST 141
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+* 장비사기23
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 장비를 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 20
+LIST 24
+LIST 23
+LIST 25
+LIST 27
+LIST 29
+LIST 30
+LIST 46
+LIST 48
+LIST 50
+LIST 52
+LIST 54
+LIST 55
+LIST 56
+LIST 65
+LIST 66
+LIST 68
+LIST 69
+LIST 74
+LIST 76
+LIST 86
+LIST 87
+LIST 88
+LIST 90
+LIST 105
+LIST 106
+LIST 108
+LIST 110
+BUY_WEAPON_END
+@ GO_DOWN 끝
+
+
+* 장비팔기
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ SELL_WEAPON "어떤 장비를 팔까?"
+255 200 0 255 255 220
+@ GO_DOWN 끝
+
+* 장비수리
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ REPAIR_WEAPON "어떤 장비를 수리할까?"
+255 0 0 230 0 180 255 200 0 255 255 220
+@ GO_DOWN 끝
+
+* 장신구사기1
+/싼 물건들만 
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 보석을 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 111
+LIST 112
+LIST 113
+LIST 114
+LIST 115
+LIST 116
+LIST 117
+LIST 118
+LIST 119
+LIST 123
+LIST 131
+LIST 135
+LIST 136
+LIST 137
+LIST 138
+LIST 139
+BUY_WEAPON_END
+@ GO_DOWN END
+
+* 장신구사기2
+/골고루 많은양 (비싼것은 없음)
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 보석을 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 111
+LIST 112
+LIST 114
+LIST 115
+LIST 116
+LIST 118
+LIST 119
+LIST 120
+LIST 123
+LIST 124
+LIST 131
+LIST 132
+LIST 134
+LIST 135
+LIST 136
+LIST 138
+LIST 139
+BUY_WEAPON_END
+@ GO_DOWN END
+
+* 장신구사기3
+/골고루 적은 개수
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_WEAPON "어떤 보석을 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 113
+LIST 117
+LIST 120
+LIST 121
+LIST 122
+LIST 124
+LIST 132
+LIST 133
+LIST 134
+LIST 140
+LIST 141
+LIST 142
+BUY_WEAPON_END
+@ GO_DOWN END
+
+* 아이템사기1
+/초기적 아이템 
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_ITEM "어느 아이템을 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 161
+LIST 162
+LIST 163
+LIST 164
+LIST 165
+LIST 151
+LIST 152
+LIST 153
+LIST 155
+LIST 156
+LIST 157
+LIST 158
+LIST 159
+LIST 176
+LIST 191
+LIST 192
+BUY_ITEM_END
+@ GO_DOWN 끝
+
+* 아이템사기2
+/좋은 아이템 종류
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ BUY_ITEM "어느 아이템을 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 162
+LIST 164
+LIST 165
+LIST 166
+LIST 167
+LIST 176
+LIST 177
+LIST 151
+LIST 152
+LIST 153
+LIST 154
+LIST 155
+LIST 156
+LIST 157
+LIST 158
+LIST 159
+LIST 160
+LIST 191
+LIST 192
+BUY_ITEM_END
+@ GO_DOWN 끝
+
+* 아이템사기3
+/상점에서 아이템 몇가지만 사기
+@ FACE HERO 250 220 0
+@ BOX BLUE 7
+@ CLEAR_BUFFER
+@ BUY_ITEM "어느 아이템을 살까?"
+200 0 150 255 0 0 255 200 0 255 255 220
+LIST 161
+LIST 162
+LIST 163
+LIST 164
+LIST 165
+BUY_ITEM_END
+@ GO_DOWN 끝
+
+* 아이템팔기
+/상점에서 아이템 팔기
+@ BOX BLUE 7
+@ FACE HERO 250 220 0
+@ CLEAR_BUFFER
+@ SELL_ITEM "무엇을 팔까?"
+255 200 0 255 255 220
+BUY_ITEM_END
+@ GO_DOWN 끝
+
+
+
+
+
+
+========================================================
+                     순간 이벤트
+========================================================
+
+151 : 석상을 보니 현재 맵의 봉인이 풀린다.
+# 151
+# 17
+# 5
+# "석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX BLUE 5
+@ COLOR 255 60 60
+@ TALK "어둠의 힘과 빛이 원래 하나였듯 모든 것은 원점으로"
+@ TALK "돌아간다. 이제 이 곳에서의 모든 마물은 다시 부활한다."
+@ WAIT
+@ UNSEAL CURMAP
+@ CHANGE 0
+@ END
+
+152 : 석상을 보니 현재 맵의 모든 적이 돌로 변한다. 300프레임
+# 152
+# 17
+# 5
+# "석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX BLUE 5
+@ COLOR 255 60 60
+@ TALK "천상 황제의 명령을 받아 지상을 어지럽히는"
+@ TALK "이 곳에서의 모든 마물은 돌로 굳는다."
+@ WAIT
+@ STONE CURMAP 300
+@ CHANGE 0
+@ END
+
+153 : 석상을 보니 현재 맵의 모든 적이 돌로 변한다. 500프레임
+# 153
+# 17
+# 5
+# "석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX BLUE 5
+@ COLOR 255 60 60
+@ TALK "천상 황제의 명령을 받아 지상을 어지럽히는"
+@ TALK "이 곳에서의 모든 마물은 돌로 굳는다."
+@ WAIT
+@ STONE CURMAP 500
+@ CHANGE 0
+@ END
+
+154 : 석상을 보니 현재 맵의 모든 적이 돌로 변한다. 700프레임
+# 154
+# 17
+# 5
+# "석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX BLUE 5
+@ COLOR 255 60 60
+@ TALK "천상 황제의 명령을 받아 지상을 어지럽히는"
+@ TALK "이 곳에서의 모든 마물은 돌로 굳는다."
+@ WAIT
+@ STONE CURMAP 700
+@ CHANGE 0
+@ END
+
+155 : 탁자를 보니 수정아이템이 생김
+# 155
+# 17
+# 5
+# "탁자"
+# FLOW
+# 100
+@ GIVE ITEM 195 1
+@ CHANGE 0
+@ END
+
+156 : 탁자를 보니 산삼아이템이 생김
+# 156
+# 17
+# 5
+# "탁자"
+# FLOW
+# 100
+@ GIVE ITEM 168 1
+@ CHANGE 0
+@ END
+
+157 : 석상을 보니 지능이 1상승
+# 157
+# 17
+# 5
+# "석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX BLUE 5
+@ COLOR 255 60 60
+@ TALK "그대가 진정으로 정의로움을 깨닫는다면 그것은"
+@ TALK "그대에게 어떤 힘보다도 강한 능력이 될 것이다."
+@ TALK "그대가 믿는 것 그것이 바로 그대의 생각이리라."
+@ TALK ""
+@ WAIT
+@ COLOR 255 250 250
+@ TALK "   *** 지능이 1 증가하였슴 ***"
+@ INCREASE BRAIN 1
+@ CHANGE 0
+@ END
+
+158 : 석상을 보니 민첩이 1상승
+# 158
+# 17
+# 5
+# "석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX BLUE 5
+@ COLOR 255 60 60
+@ TALK "그대 스스로의 능력을 인정하고 바람보다 빠른"
+@ TALK "그대의 능력을 일깨우라."
+@ TALK ""
+@ WAIT
+@ COLOR 255 250 250
+@ TALK "   *** 민첩이 1 증가하였슴 ***"
+@ INCREASE DEXTERITY 1
+@ CHANGE 0
+@ END
+
+159 : 석상을 보니 근력이 1상승
+# 159
+# 17
+# 5
+# "석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX BLUE 5
+@ COLOR 255 60 60
+@ TALK "진정한 힘은 단순히 육체적인 것에만 집중되지 않는 것."
+@ TALK "그대의 정신과 육체를 하나로 연결하라."
+@ TALK " "
+@ WAIT
+@ COLOR 255 250 250
+@ TALK "   *** 근력이 1 증가하였슴 ***"
+@ INCREASE STRENGTH 1
+@ CHANGE 0
+@ END
+
+160 : 석상을 보니 체력이 1상승
+# 160
+# 17
+# 5
+# "석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX BLUE 5
+@ COLOR 255 60 60
+@ TALK "육체는 정신의 연장선에 놓여 있는 것."
+@ TALK "이제 그대의 순수한 마음을 일깨웠으니 그대의 육체또한"
+@ TALK "함께 성장하리라."
+@ TALK ""
+@ WAIT
+@ COLOR 255 250 250
+@ TALK "   *** 체력이 1 증가하였슴 ***"
+@ INCREASE HEALTH 1
+@ CHANGE 0
+@ END
+
+161 : 석상을 보니 마법이 1상승
+# 161
+# 17
+# 5
+# "석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX BLUE 5
+@ COLOR 255 60 60
+@ TALK "자연과 하나가 되어라. 그대의 몸도 자연의 일부."
+@ TALK "그것을 깨닫는 다면 진정한 마법의 힘을 느낄 수"
+@ TALK "있을 것이다."
+@ TALK ""
+@ WAIT
+@ COLOR 255 250 250
+@ TALK "   *** 마법이 1 증가하였슴 ***"
+@ INCREASE MAGIC 1
+@ CHANGE 0
+@ END
+
+162 : 탁자를 보니 학업진취부아이템이 생김
+# 162
+# 17
+# 5
+# "탁자"
+# FLOW
+# 100
+@ GIVE ITEM 178 1
+@ CHANGE 0
+@ END
+
+163 : 탁자를 보니 적감부아이템이 생김
+# 163
+# 17
+# 5
+# "탁자"
+# FLOW
+# 100
+@ GIVE ITEM 179 1
+@ CHANGE 0
+@ END
+
+164 : 탁자를 보니 금은자래부아이템이 생김
+# 164
+# 17
+# 5
+# "탁자"
+# FLOW
+# 100
+@ GIVE ITEM 180 1
+@ CHANGE 0
+@ END
+
+165 : 탁자를 보니 질병소면부아이템이 생김
+# 165
+# 17
+# 5
+# "탁자"
+# FLOW
+# 100
+@ GIVE ITEM 181 1
+@ CHANGE 0
+@ END
+
+166 : 탁자를 보니 퇴마부아이템이 생김
+# 166
+# 17
+# 5
+# "탁자"
+# FLOW
+# 100
+@ GIVE ITEM 176 1
+@ CHANGE 0
+@ END
+
+167 : 탁자를 보니 남녀화합부아이템이 생김
+# 167
+# 17
+# 5
+# "탁자"
+# FLOW
+# 100
+@ GIVE ITEM 177 1
+@ CHANGE 0
+@ END
+
+168 : 탁자를 보니 천리안아이템이 생김
+# 168
+# 17
+# 5
+# "탁자"
+# FLOW
+# 100
+@ GIVE ITEM 196 1
+@ CHANGE 0
+@ END
+
+169 : 탁자를 보니 인삼아이템이 생김
+# 169
+# 17
+# 5
+# "탁자"
+# FLOW
+# 100
+@ GIVE ITEM 167 1
+@ CHANGE 0
+@ END
+
+170 : 석상을 보니 생명력이 꽉찬다.
+# 170
+# 17
+# 5
+# " "
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX BLUE 5
+@ COLOR 255 60 60
+@ TALK "육체의 피로가 풀리리라."
+@ WAIT
+@ FULL_LIFE
+@ CHANGE 0
+@ END
+
+171 : 석상을 보니 기력이 꽉찬다.
+# 171
+# 17
+# 5
+# " "
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX BLUE 5
+@ COLOR 255 60 60
+@ TALK "정신의 피로가 풀리리라."
+@ WAIT
+@ FULL_MANA
+@ CHANGE 0
+@ END
+
+172 : 석상을 보니 생명력과 기력이 꽉찬다.
+# 172
+# 17
+# 5
+# " "
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX BLUE 5
+@ COLOR 255 60 60
+@ TALK "정신과 육체의 피로가 풀리리라."
+@ WAIT
+@ FULL_LIFE
+@ FULL_MANA
+@ CHANGE 0
+@ END
+
+
+
+  석상을 보니 문을 열어준다.
+# 180
+# 17
+# 5
+# "석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX RED 5
+@ COLOR 255 60 60
+@ TALK "선자임을 확인하고 길을 열어주겠노라."
+@ CHANGE_GOS 19
+@ WAIT
+@ REMOVE_OBJECT CURMAP 31
+@ REMOVE_OBJECT CURMAP 32
+@ REMOVE_OBJECT CURMAP 33
+@ REMOVE_OBJECT CURMAP 34
+@ REMOVE_OBJECT CURMAP 35
+@ REMOVE_OBJECT THIS
+@ END
+
+  석상을 보니 문을 열어준다.
+# 181
+# 17
+# 5
+# "석상"
+# FLOW
+# 100
+@ CLEAR_BUFFER
+@ FACE NO
+@ BOX RED 5
+@ COLOR 255 60 60
+@ TALK "선자임을 확인하고 길을 열어주겠노라."
+@ CHANGE_GOS 19
+@ WAIT
+@ REMOVE_OBJECT CURMAP 36
+@ REMOVE_OBJECT CURMAP 37
+@ REMOVE_OBJECT CURMAP 38
+@ REMOVE_OBJECT CURMAP 39
+@ REMOVE_OBJECT CURMAP 40
+@ REMOVE_OBJECT THIS
+@ END
+
+
+
+190 : 워프 공간 (비륵굴안)
+# 190
+# 21
+# 1
+# "동굴안 워프"
+# FLOW
+# 100
+@ WARP 19 25 47
+@ END
+
+191 : 워프 공간 (비륵굴 안)
+# 191
+# 21
+# 1
+# "동굴안 워프"
+# BASIC
+# 100
+@ WARP 19 47 23
+@ END
+
+192 : 워프 공간 (비륵굴 안)
+# 192
+# 21
+# 1
+# "동굴안 워프"
+# BASIC
+# 100
+@ WARP 19 20 10
+@ END
+
+
+
+
+* NO_SPACE
+@ CLEAR_BUFFER
+@ BOX BLUE 5
+@ FACE HERO 0 0 255
+@ COLOR 0 0 200
+@ TALK "아차! 다른 사건들을 먼저 해결해야 하는군."
+@ TALK "죄송합니다. 지금은 다른 부탁을 받아 놓은 것이"
+@ TALK "많아서 지금은 그 일을 할 수 없네요."
+@ WAIT
+@ CLEAR_BUFFER
+@ TALK "먼저 의뢰 받은 사건들을 해결해야겠군."
+@ TALK "힘든 사건들은 그냥 버려야겠어."
+@ WAIT
+@ END
+
+
+
+
+* 끝
+@ END
+* END
+@ END
+
+
+
+* 중계끝
+@ CLEAR_BUFFER
+@ TALK "뭐.. 그렇다면 어쩔 수 없지."
+@ WAIT
+@ END
+
+* 중계다시
+@ CLEAR_BUFFER
+@ TALK "자네.. 어서 떠나지 않고 무얼 하는 건가?"
+@ TALK "지금 한시가 급하네..."
+@ TALK "재촉해서 미안하지만.. 어서 좀 부탁하네!"
+@ WAIT
+@ END
